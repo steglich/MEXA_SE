@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0D5FE14-F386-4F36-90C4-6616D4AECB82}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MEXA_SE.Domain</RootNamespace>
+    <AssemblyName>MEXA_SE.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\AtividadeDiacommands\CreateAtividadeDiaCommand.cs" />
+    <Compile Include="Commands\AtividadeDiacommands\UpdateAtividadeDiaCommand.cs" />
+    <Compile Include="Commands\AvaiacaoCommands\CreateAvaliacaoCommand.cs" />
+    <Compile Include="Commands\AvaiacaoCommands\UpdateAvaliacaoCommand.cs" />
+    <Compile Include="Commands\EvolucaoTreinoCommands\CreateEvolucaoTreinoCommand.cs" />
+    <Compile Include="Commands\EvolucaoTreinoCommands\UpdateEvolucaoTreinoCommand.cs" />
+    <Compile Include="Commands\ExercicioCommands\CreateExercicioCommand.cs" />
+    <Compile Include="Commands\ExercicioCommands\UpdateExercicioCommand.cs" />
+    <Compile Include="Commands\FichaCommands\CreateFichaCommand.cs" />
+    <Compile Include="Commands\FichaCommands\UpdateFichaCommand.cs" />
+    <Compile Include="Commands\TreinoCommands\CreateTreinoCommand.cs" />
+    <Compile Include="Commands\TreinoCommands\UpdateTreinoCommand.cs" />
+    <Compile Include="Commands\UsuarioCommands\RegisterUsuarioCommand.cs" />
+    <Compile Include="Commands\UsuarioCommands\UpdateUsuarioCommand.cs" />
+    <Compile Include="Commands\UsuarioTreinoCommands\CreateUsuarioTreinoCommand.cs" />
+    <Compile Include="Commands\UsuarioTreinoCommands\UpdateUsuarioTreinoCommand.cs" />
+    <Compile Include="Entities\AtividadeDia.cs" />
+    <Compile Include="Entities\Avaliacao.cs" />
+    <Compile Include="Entities\EvolucaoTreino.cs" />
+    <Compile Include="Entities\Exercicio.cs" />
+    <Compile Include="Entities\Ficha.cs" />
+    <Compile Include="Entities\Treino.cs" />
+    <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="Entities\UsuarioTreino.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scopes\AtividadeDiaScopes.cs" />
+    <Compile Include="Scopes\AvaliacaoScopes.cs" />
+    <Compile Include="Scopes\EvolucaoTreinoScopes.cs" />
+    <Compile Include="Scopes\ExercicioScopes.cs" />
+    <Compile Include="Scopes\FichaScopes.cs" />
+    <Compile Include="Scopes\TreinoScopes.cs" />
+    <Compile Include="Scopes\UsuarioScopes.cs" />
+    <Compile Include="Scopes\UsuarioTreinoScopes.cs" />
+    <Compile Include="Specs\AtividadeDiaSpecs.cs" />
+    <Compile Include="Specs\UsuarioSpecs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MEXA_SE.SharedKernel\MEXA_SE.SharedKernel.csproj">
+      <Project>{eff898bd-0e8d-4c95-9c68-820885326073}</Project>
+      <Name>MEXA_SE.SharedKernel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
