@@ -74,7 +74,13 @@
     <Compile Include="Scopes\UsuarioScopes.cs" />
     <Compile Include="Scopes\UsuarioTreinoScopes.cs" />
     <Compile Include="Specs\AtividadeDiaSpecs.cs" />
+    <Compile Include="Specs\AvaliacaoSpecs.cs" />
+    <Compile Include="Specs\EvolucaoTreinoSpecs.cs" />
+    <Compile Include="Specs\ExercicioSpecs.cs" />
+    <Compile Include="Specs\FichaSpecs.cs" />
+    <Compile Include="Specs\TreinoSpecs.cs" />
     <Compile Include="Specs\UsuarioSpecs.cs" />
+    <Compile Include="Specs\UsuarioTreinoSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MEXA_SE.SharedKernel\MEXA_SE.SharedKernel.csproj">
