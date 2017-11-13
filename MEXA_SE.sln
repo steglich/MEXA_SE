@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXA_SE.SharedKernel", "MEX
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXA_SE.Test", "MEXA_SE.Test\MEXA_SE.Test.csproj", "{DD9818DC-8FCD-4EEE-91AA-D9996806094A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXA_SE.Infra", "MEXA_SE.Infra\MEXA_SE.Infra.csproj", "{D0E3B407-6936-4FDD-9FD0-D0AD73DE9324}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DD9818DC-8FCD-4EEE-91AA-D9996806094A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD9818DC-8FCD-4EEE-91AA-D9996806094A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD9818DC-8FCD-4EEE-91AA-D9996806094A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0E3B407-6936-4FDD-9FD0-D0AD73DE9324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0E3B407-6936-4FDD-9FD0-D0AD73DE9324}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0E3B407-6936-4FDD-9FD0-D0AD73DE9324}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0E3B407-6936-4FDD-9FD0-D0AD73DE9324}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
