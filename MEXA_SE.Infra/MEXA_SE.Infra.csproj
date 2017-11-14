@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presistence\DataContexts\DataContext.cs" />
+    <Compile Include="Presistence\IUnitOfWork.cs" />
     <Compile Include="Presistence\Map\AtividadeDiaMap.cs" />
     <Compile Include="Presistence\Map\AvaliacaoMap.cs" />
     <Compile Include="Presistence\Map\EvolucaoTreinoMap.cs" />
@@ -56,7 +57,16 @@
     <Compile Include="Presistence\Map\TreinoMap.cs" />
     <Compile Include="Presistence\Map\UsuarioMap.cs" />
     <Compile Include="Presistence\Map\UsuarioTreinoMap.cs" />
+    <Compile Include="Presistence\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AtividadeDiaRepository.cs" />
+    <Compile Include="Repositories\AvaliacaoRepository.cs" />
+    <Compile Include="Repositories\EvolucaoTreinoRepository.cs" />
+    <Compile Include="Repositories\ExercicioRepository.cs" />
+    <Compile Include="Repositories\FichaRepository.cs" />
+    <Compile Include="Repositories\TreinoRepository.cs" />
+    <Compile Include="Repositories\UsuarioRepository.cs" />
+    <Compile Include="Repositories\UsuarioTreinoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

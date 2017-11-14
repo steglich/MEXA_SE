@@ -4,7 +4,7 @@ namespace MEXA_SE.Domain.Repositories
 {
     public interface IUsuarioRepository
     {
-        Usuario GetAuthenticateUsuario(string emial, string senha);
+        Usuario GetAuthenticateUsuario(string email, string senha);
         Usuario GetOne(int id);
         Usuario GetByEmail(string email);
         void Create(Usuario usuario);

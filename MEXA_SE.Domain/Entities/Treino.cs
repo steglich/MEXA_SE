@@ -15,7 +15,7 @@ namespace MEXA_SE.Domain.Entities
 
         public int TreinoId { get; set; }
         public string DsTreino { get; private set; }
-        
+
         public virtual ICollection<Exercicio> Exercicio { get; set; }
         public virtual ICollection<UsuarioTreino> UsuarioTreino { get; set; }
 

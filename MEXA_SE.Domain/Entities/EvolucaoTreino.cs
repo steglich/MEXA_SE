@@ -1,5 +1,6 @@
 ﻿using MEXA_SE.Domain.Scopes;
 using System;
+using System.Collections.Generic;
 
 namespace MEXA_SE.Domain.Entities
 {
