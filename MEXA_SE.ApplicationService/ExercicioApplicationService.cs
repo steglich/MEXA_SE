@@ -49,7 +49,7 @@ namespace MEXA_SE.ApplicationService
         {
             var exercicio = _repository.GetId(command.ExercicioId);
             exercicio.UpdateExercicio(command.DsExercicio);
-            _repository.Create(exercicio);
+            _repository.Update(exercicio);
 
             if (Commit())
             {

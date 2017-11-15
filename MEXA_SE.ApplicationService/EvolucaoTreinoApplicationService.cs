@@ -44,7 +44,7 @@ namespace MEXA_SE.ApplicationService
         {
             var evolucaoTreino = _repository.GetId(command.EvolucaoTreinoId);
             evolucaoTreino.UpdateEvolucaoTreino(command.Repeticao, command.Carga, command.AumetoTreino);
-            _repository.Create(evolucaoTreino);
+            _repository.Update(evolucaoTreino);
 
             if (Commit())
             {

@@ -48,7 +48,7 @@ namespace MEXA_SE.ApplicationService
             ficha.UpdateFicha(command.Peso, command.Altura, command.Gordura, command.Peito, command.Cintura, command.Quadril,
                 command.AnteBracoDireito, command.AnteBracoEsquerdo, command.BracoDireito, command.BracoEsquerdo, command.CoxaDireita,
                 command.CoxaEsquerda, command.PantuDireita, command.PantuEsquerda);
-            _repository.Create(ficha);
+            _repository.Update(ficha);
 
             if (Commit())
             {

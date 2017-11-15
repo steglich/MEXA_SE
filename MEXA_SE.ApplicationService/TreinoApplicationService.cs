@@ -49,7 +49,7 @@ namespace MEXA_SE.ApplicationService
         {
             var treino = _repository.GetId(command.TreinoId);
             treino.UpdateTreino(command.DsTreino);
-            _repository.Create(treino);
+            _repository.Update(treino);
 
             if (Commit())
             {

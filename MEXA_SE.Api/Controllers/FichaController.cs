@@ -4,13 +4,9 @@ using MEXA_SE.Domain.Services;
 using MEXA_SE.Infra.Presistence;
 using MEXA_SE.Infra.Presistence.DataContexts;
 using MEXA_SE.Infra.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 
 namespace MEXA_SE.Api.Controllers
@@ -117,7 +113,7 @@ namespace MEXA_SE.Api.Controllers
                     pantuEsquerda: (float)body.pantuEsquerda
                 );
 
-                var avaliacao = _service.Update(command);
+                var ficha = _service.Update(command);
                 response = Request.CreateResponse(HttpStatusCode.OK, "Atualizado com sucesso!");
             }
             catch

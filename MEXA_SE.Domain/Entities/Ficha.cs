@@ -71,6 +71,7 @@ namespace MEXA_SE.Domain.Entities
 
             this.Peso = peso;
             this.Altura = altura;
+            this.Imc = (peso / (altura * altura));
             this.Gordura = gordura;
             this.Peito = peito;
             this.Cintura = cintura;

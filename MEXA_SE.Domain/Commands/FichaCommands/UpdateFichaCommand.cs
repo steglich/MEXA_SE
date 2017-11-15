@@ -8,7 +8,7 @@
         {
             this.FichaId = fichaId;
             this.Peso = peso;
-            this.Altura = Altura;
+            this.Altura = altura;
             this.Gordura = gordura;
             this.Peito = peito;
             this.Cintura = cintura;
@@ -26,11 +26,6 @@
         public int FichaId { get; set; }
         public float Peso { get; private set; }
         public float Altura { get; private set; }
-        public float Imc
-        {
-            get { return Imc; }
-            private set { Imc = (this.Peso / (this.Altura * 2)); }
-        }
         public float Gordura { get; private set; }
         public float Peito { get; private set; }
         public float Cintura { get; private set; }
