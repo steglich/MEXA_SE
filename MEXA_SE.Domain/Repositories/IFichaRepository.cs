@@ -5,9 +5,9 @@ namespace MEXA_SE.Domain.Repositories
 {
     public interface IFichaRepository
     {
-        List<Ficha> Get();
-        List<Ficha> GetUsuario(string email);
-        Ficha GetOne(int id);
+        List<Ficha> GetAll();
+        Ficha GetId(int fichaId);
+        Ficha GetOne(int fichaId, string email);
         void Create(Ficha ficha);
         void Update(Ficha ficha);
     }

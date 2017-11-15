@@ -1,17 +1,16 @@
 ﻿using MEXA_SE.Domain.Scopes;
 using System;
-using System.Collections.Generic;
 
 namespace MEXA_SE.Domain.Entities
 {
     public class EvolucaoTreino
     {
-        public EvolucaoTreino(int repeticao, int carga, DateTime aumentoTreino, int exercicioId)
+        public EvolucaoTreino(int repeticao, int carga, DateTime aumentoTreino)
         {
             this.Repeticao = repeticao;
             this.Carga = carga;
             this.AumetoTreino = aumentoTreino;
-            this.ExercicioId = exercicioId;
+            //this.ExercicioId = exercicioId;
         }
 
         public int EvolucaoTreinoId { get; set; }
@@ -21,7 +20,6 @@ namespace MEXA_SE.Domain.Entities
         public DateTime AumetoTreino { get; private set; }
 
         public int ExercicioId { get; set; }
-
         public virtual Exercicio Exercicio { get; set; }
 
         public void CreateEvolucaoTreino()

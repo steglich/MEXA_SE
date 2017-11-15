@@ -4,18 +4,19 @@ namespace MEXA_SE.Domain.Commands.AvaiacaoCommands
 {
     public class UpdateAvaliacaoCommand
     {
-        public UpdateAvaliacaoCommand(int usuarioId, int fichaId, DateTime dtAvaliacao, DateTime reavaliacao)
+        public UpdateAvaliacaoCommand(int avaliacaoId, DateTime reavaliacao)
         {
-            this.UsuarioId = usuarioId;
-            this.FichaId = fichaId;
-            this.DtAvaliacao = dtAvaliacao;
+            this.AvaliacaoId = avaliacaoId;
+            //this.DtAvaliacao = dtAvaliacao;
             this.Reavaliacao = reavaliacao;
+            //this.UsarioId = UsarioId;
         }
 
-        public int UsuarioId { get; set; }
-        public int FichaId { get; set; }
+        public int AvaliacaoId { get; set; }
 
-        public DateTime DtAvaliacao { get; private set; }
+        //public DateTime DtAvaliacao { get; private set; }
         public DateTime Reavaliacao { get; private set; }
+
+        //public int UsarioId { get; set; }
     }
 }

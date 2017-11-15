@@ -5,8 +5,9 @@ namespace MEXA_SE.Domain.Repositories
 {
     public interface IExercicioRepository
     {
-        List<Exercicio> Get();
-        Exercicio GetOne(int exercicioId, int treinoId);
+        List<Exercicio> GetAll();
+        Exercicio GetId(int exercicioId);
+        Exercicio GetOne(int exercicioId, string email);
         Exercicio GetExercicio(string exercicio);
         void Create(Exercicio exercico);
         void Update(Exercicio exercico);

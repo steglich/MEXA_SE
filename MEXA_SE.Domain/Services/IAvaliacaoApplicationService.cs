@@ -6,9 +6,9 @@ namespace MEXA_SE.Domain.Services
 {
     public interface IAvaliacaoApplicationService
     {
-        List<Avaliacao> Get();
-        Avaliacao GetOne(int usuarioId, int fichaId);
-        void Create(CreateAvaliacaoCommand command);
-        void Update(UpdateAvaliacaoCommand command);
+        List<Avaliacao> GetAll();
+        Avaliacao GetOne(int avaliacaoId, string email);
+        Avaliacao Create(CreateAvaliacaoCommand command);
+        Avaliacao Update(UpdateAvaliacaoCommand command);
     }
 }

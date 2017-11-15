@@ -6,6 +6,10 @@ namespace MEXA_SE.Domain.Entities
 {
     public class Usuario
     {
+        public Usuario()
+        {
+
+        }
         public Usuario(string nome, string email, string senha, bool isAdmin)
         {
             this.Nome = nome;

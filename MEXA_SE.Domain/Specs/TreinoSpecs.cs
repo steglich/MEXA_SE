@@ -6,9 +6,9 @@ namespace MEXA_SE.Domain.Specs
 {
     public static class TreinoSpecs
     {
-        public static Expression<Func<Treino, bool>> GetAll(int treinoId)
+        public static Expression<Func<Treino, bool>> GetAll(int treinoId, string email)
         {
-            return x => x.TreinoId == treinoId;
+            return x => x.TreinoId == treinoId && x.UsuarioTreino.Usuario.Email == email;
         }
     }
 }

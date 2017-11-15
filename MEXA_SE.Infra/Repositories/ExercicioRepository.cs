@@ -1,5 +1,6 @@
 ﻿using MEXA_SE.Domain.Entities;
 using MEXA_SE.Domain.Repositories;
+using MEXA_SE.Domain.Specs;
 using MEXA_SE.Infra.Presistence.DataContexts;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -21,7 +22,7 @@ namespace MEXA_SE.Infra.Repositories
             _context.Exercicio.Add(exercico);
         }
 
-        public List<Exercicio> Get()
+        public List<Exercicio> GetAll()
         {
             return _context.Exercicio.ToList();
         }
@@ -31,9 +32,14 @@ namespace MEXA_SE.Infra.Repositories
             return _context.Exercicio.Find(exercicio);
         }
 
-        public Exercicio GetOne(int exercicioId, int treinoId)
+        public Exercicio GetId(int exercicioId)
         {
-            return _context.Exercicio.Find(exercicioId, treinoId);
+            return _context.Exercicio.Find(exercicioId);
+        }
+
+        public Exercicio GetOne(int exercicioId, string email)
+        {
+            return _context.Exercicio.Where(ExercicioSpecs.GetAll(exercicioId, email)).FirstOrDefault();
         }
 
         public void Update(Exercicio exercico)

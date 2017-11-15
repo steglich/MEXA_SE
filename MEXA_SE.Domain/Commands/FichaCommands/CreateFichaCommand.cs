@@ -3,10 +3,11 @@
     public class CreateFichaCommand
     {
         public CreateFichaCommand(float peso, float altura, float gordura, float peito, float cintura, float quadril, float anteBracoDireito,
-            float anteBracoEsquerdo, float bracoDireito, float bracoEsquerdo, float coxaDireita, float coxaEsquerda, float pantuDireita, float pantuEsquerda)
+            float anteBracoEsquerdo, float bracoDireito, float bracoEsquerdo, float coxaDireita, float coxaEsquerda, float pantuDireita,
+            float pantuEsquerda, int avaliacaoId)
         {
             this.Peso = peso;
-            this.Altura = Altura;
+            this.Altura = altura;
             this.Gordura = gordura;
             this.Peito = peito;
             this.Cintura = cintura;
@@ -19,6 +20,8 @@
             this.CoxaEsquerda = coxaEsquerda;
             this.PantuDireita = pantuDireita;
             this.PantuEsquerda = pantuEsquerda;
+
+            this.AvaliacaoId = avaliacaoId;
         }
         
         public float Peso { get; private set; }
@@ -40,5 +43,7 @@
         public float CoxaEsquerda { get; private set; }
         public float PantuDireita { get; private set; }
         public float PantuEsquerda { get; private set; }
+
+        public int AvaliacaoId { get; set; }
     }
 }

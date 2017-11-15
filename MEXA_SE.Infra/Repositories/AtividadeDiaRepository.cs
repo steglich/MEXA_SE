@@ -22,15 +22,22 @@ namespace MEXA_SE.Infra.Repositories
             _context.AtividadeDia.Add(atividadeDia);
         }
 
-        public List<AtividadeDia> GetAll(string email)
+        public List<AtividadeDia> GetAll()
         {
-            return _context.AtividadeDia.Where(AtividadeDiaSpecs.GetAllDias(email)).ToList();
+            return _context.AtividadeDia.ToList();
         }
 
-        //public AtividadeDia GetOne(int id, string email)
+        //public AtividadeDia GetOne(int atividadeDiaId, string email)
         //{
-        //    return _context.AtividadeDia.Where(x => x.UsuarioId == x.Usuario.UsuarioId && x.Usuario.Email.Equals(email) && x.AtividadeDiaId == id).FirstOrDefault();
+        //    throw new System.NotImplementedException();
         //}
+
+        public AtividadeDia GetOne(int atividadeDiaId, string email)
+        {
+
+            return _context.AtividadeDia.Where(AtividadeDiaSpecs.GetAllDias(atividadeDiaId, email)).FirstOrDefault();
+            //return _context.AtividadeDia.Where(x => x.Usuario.Email.Equals(email) && x.AtividadeDiaId == atividadeDiaId).FirstOrDefault();
+        }
 
         public void Update(AtividadeDia atividadeDia)
         {

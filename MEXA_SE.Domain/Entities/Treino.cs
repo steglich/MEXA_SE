@@ -10,14 +10,16 @@ namespace MEXA_SE.Domain.Entities
             this.DsTreino = dsTreino;
 
             this.Exercicio = new List<Exercicio>();
-            this.UsuarioTreino = new List<UsuarioTreino>();
+            //this.UsuarioTreino = new List<UsuarioTreino>();
         }
 
         public int TreinoId { get; set; }
         public string DsTreino { get; private set; }
 
+        public int UsuarioTreinoId { get; set; }
+        public virtual UsuarioTreino UsuarioTreino { get; set; }
+
         public virtual ICollection<Exercicio> Exercicio { get; set; }
-        public virtual ICollection<UsuarioTreino> UsuarioTreino { get; set; }
 
         public void CreateTreino()
         {

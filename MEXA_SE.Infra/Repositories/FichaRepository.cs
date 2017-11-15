@@ -1,5 +1,6 @@
 ﻿using MEXA_SE.Domain.Entities;
 using MEXA_SE.Domain.Repositories;
+using MEXA_SE.Domain.Specs;
 using MEXA_SE.Infra.Presistence.DataContexts;
 using System;
 using System.Collections.Generic;
@@ -22,19 +23,19 @@ namespace MEXA_SE.Infra.Repositories
             _context.Ficha.Add(ficha);
         }
 
-        public List<Ficha> Get()
+        public List<Ficha> GetAll()
         {
             return _context.Ficha.ToList();
         }
 
-        public Ficha GetOne(int id)
+        public Ficha GetId(int fichaId)
         {
-            return _context.Ficha.Find(id);
+            return _context.Ficha.Find(fichaId);
         }
 
-        public List<Ficha> GetUsuario(string email)
+        public Ficha GetOne(int fichaId, string email)
         {
-            throw new NotImplementedException();
+            return _context.Ficha.Where(FichaSpecs.GetAll(fichaId, email)).FirstOrDefault();
         }
 
         public void Update(Ficha ficha)

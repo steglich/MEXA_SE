@@ -6,10 +6,10 @@ namespace MEXA_SE.Domain.Services
 {
     public interface IExercicioApplicationService
     {
-        List<Exercicio> Get();
-        Exercicio GetOne(int exercicioId, int treinoId);
+        List<Exercicio> GetAll();
+        Exercicio GetOne(int exercicioId, string email);
         Exercicio GetExercicio(string exercicio);
-        void Create(CreateExercicioCommand command);
-        void Update(UpdateExercicioCommand command);
+        Exercicio Create(CreateExercicioCommand command);
+        Exercicio Update(UpdateExercicioCommand command);
     }
 }

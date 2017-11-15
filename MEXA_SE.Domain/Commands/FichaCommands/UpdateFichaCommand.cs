@@ -3,7 +3,8 @@
     public class UpdateFichaCommand
     {
         public UpdateFichaCommand(int fichaId, float peso, float altura, float gordura, float peito, float cintura, float quadril, float anteBracoDireito,
-            float anteBracoEsquerdo, float bracoDireito, float bracoEsquerdo, float coxaDireita, float coxaEsquerda, float pantuDireita, float pantuEsquerda)
+            float anteBracoEsquerdo, float bracoDireito, float bracoEsquerdo, float coxaDireita, float coxaEsquerda, float pantuDireita,
+            float pantuEsquerda)
         {
             this.FichaId = fichaId;
             this.Peso = peso;

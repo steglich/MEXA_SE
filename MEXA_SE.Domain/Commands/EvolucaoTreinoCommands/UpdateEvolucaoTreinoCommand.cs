@@ -10,7 +10,7 @@ namespace MEXA_SE.Domain.Commands.EvolucaoTreinoCommands
             this.Repeticao = repeticao;
             this.Carga = carga;
             this.AumetoTreino = aumentoTreino;
-            this.ExercicioId = exercicioId;
+            this.ExericioId = ExericioId;
         }
 
         public int EvolucaoTreinoId { get; set; }
@@ -19,6 +19,6 @@ namespace MEXA_SE.Domain.Commands.EvolucaoTreinoCommands
         public int Carga { get; private set; }
         public DateTime AumetoTreino { get; private set; }
 
-        public int ExercicioId { get; set; }
+        public int ExericioId { get; set; }
     }
 }

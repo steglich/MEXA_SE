@@ -4,15 +4,16 @@ namespace MEXA_SE.Domain.Commands.UsuarioTreinoCommands
 {
     public class UpdateUsuarioTreinoCommand
     {
-        public UpdateUsuarioTreinoCommand(int usuarioId, int treinoId, DateTime dtTreino)
+        public UpdateUsuarioTreinoCommand(int usuarioTreinoId, DateTime dtTreino, int usuarioId)
         {
-            this.UsuarioId = usuarioId;
-            this.TreinoId = treinoId;
+            this.UsuarioTreinoId = usuarioTreinoId;
             this.DtTreino = dtTreino;
+            this.UsuarioId = usuarioId;
         }
         
-        public int UsuarioId { get; set; }
-        public int TreinoId { get; set; }
+        public int UsuarioTreinoId { get; set; }
         public DateTime DtTreino { get; private set; }
+
+        public int UsuarioId { get; set; }
     }
 }

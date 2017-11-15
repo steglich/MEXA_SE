@@ -1,23 +1,27 @@
 ﻿using MEXA_SE.Domain.Scopes;
 using System;
+using System.Collections.Generic;
 
 namespace MEXA_SE.Domain.Entities
 {
     public class UsuarioTreino
     {
-        public UsuarioTreino(int usuarioId, int treinoId, DateTime dtTreino)
+        public UsuarioTreino( DateTime dtTreino)
         {
-            this.UsuarioId = usuarioId;
-            this.TreinoId = treinoId;
+            //this.UsuarioId = usuarioId;
+            //this.TreinoId = treinoId;
             this.DtTreino = dtTreino;
+
+            this.Treino = new List<Treino>();
         }
-        
-        public int UsuarioId { get; set; }        
-        public int TreinoId { get; set; }
+               
+        public int UsuarioTreinoId { get; set; }
         public DateTime DtTreino { get; private set; }
 
-        public virtual Treino Treino { get; set; }
+        public int UsuarioId { get; set; }
         public virtual Usuario Usuario { get; set; }
+
+        public virtual ICollection<Treino> Treino { get; set; }
 
         public void CreateUsuarioTreino()
         {

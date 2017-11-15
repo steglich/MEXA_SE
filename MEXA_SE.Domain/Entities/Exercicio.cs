@@ -5,21 +5,21 @@ namespace MEXA_SE.Domain.Entities
 {
     public class Exercicio
     {
-        public Exercicio(string dsExercicio, int treinoId)
+        public Exercicio(string dsExercicio)
         {
             this.DsExercicio = dsExercicio;
-            this.TreinoId = treinoId;
+            //this.TreinoId = treinoId;
 
             this.EvolucaoTreino = new List<EvolucaoTreino>();
         }
 
         public int ExercicioId { get; set; }
-        public string DsExercicio { get; private set; }
+        public string DsExercicio { get; set; }
 
         public int TreinoId { get; set; }
-        public virtual ICollection<EvolucaoTreino> EvolucaoTreino { get; set; }
-
         public virtual Treino Treino { get; set; }
+
+        public virtual ICollection<EvolucaoTreino> EvolucaoTreino { get; set; }
 
         public void CreateExercicio()
         {

@@ -6,7 +6,8 @@ namespace MEXA_SE.Domain.Repositories
     public interface IEvolucaoTreinoRepository
     {
         List<EvolucaoTreino> GetAll();
-        EvolucaoTreino GetOne(int evolucaoTreinoId, int exercicioid);
+        EvolucaoTreino GetId(int evolucaoTreinoId);
+        EvolucaoTreino GetOne(int evolucaoTreinoId, string email);
         void Create(EvolucaoTreino evolucaoTreino);
         void Update(EvolucaoTreino evolucaoTreino);
     }

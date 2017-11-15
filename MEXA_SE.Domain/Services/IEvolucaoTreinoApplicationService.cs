@@ -6,9 +6,9 @@ namespace MEXA_SE.Domain.Services
 {
     public interface IEvolucaoTreinoApplicationService
     {
-        List<EvolucaoTreino> Get();
-        EvolucaoTreino GetOne(int evolucaoTreinoId, int exercicioid);
-        void Create(CreateEvolucaoTreinoCommand command);
-        void Update(UpdateEvolucaoTreinoCommand command);
+        List<EvolucaoTreino> GetAll();
+        EvolucaoTreino GetOne(int evolucaoTreinoId, string email);
+        EvolucaoTreino Create(CreateEvolucaoTreinoCommand command);
+        EvolucaoTreino Update(UpdateEvolucaoTreinoCommand command);
     }
 }

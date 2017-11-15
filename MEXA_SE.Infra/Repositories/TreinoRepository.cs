@@ -1,5 +1,6 @@
 ﻿using MEXA_SE.Domain.Entities;
 using MEXA_SE.Domain.Repositories;
+using MEXA_SE.Domain.Specs;
 using MEXA_SE.Infra.Presistence.DataContexts;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -21,14 +22,19 @@ namespace MEXA_SE.Infra.Repositories
             _context.Treino.Add(treino);
         }
 
-        public List<Treino> Get()
+        public List<Treino> GetAll()
         {
             return _context.Treino.ToList();
         }
 
-        public Treino GetOne(int treinoId)
+        public Treino GetId(int treinoId)
         {
             return _context.Treino.Find(treinoId);
+        }
+
+        public Treino GetOne(int treinoId, string email)
+        {
+            return _context.Treino.Where(TreinoSpecs.GetAll(treinoId, email)).FirstOrDefault();
         }
 
         public Treino GetTreino(string treino)

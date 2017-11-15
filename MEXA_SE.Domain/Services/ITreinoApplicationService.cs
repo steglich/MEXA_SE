@@ -6,10 +6,10 @@ namespace MEXA_SE.Domain.Services
 {
     public interface ITreinoApplicationService
     {
-        List<Treino> Get();
-        Treino GetOne(int treinoId);
+        List<Treino> GetAll();
+        Treino GetOne(int treinoId, string email);
         Treino GetTreino(string treino);
-        void Create(CreateTreinoCommand command);
-        void Update(UpdateTreinoCommand command);
+        Treino Create(CreateTreinoCommand command);
+        Treino Update(UpdateTreinoCommand command);
     }
 }

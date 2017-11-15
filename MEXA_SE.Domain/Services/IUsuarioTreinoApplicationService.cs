@@ -6,9 +6,9 @@ namespace MEXA_SE.Domain.Services
 {
     public interface IUsuarioTreinoApplicationService
     {
-        List<UsuarioTreino> Get();
-        UsuarioTreino GetOne(int usuarioId, int treinoId);
-        void Create(CreateUsuarioTreinoCommand command);
-        void Update(UpdateUsuarioTreinoCommand command);
+        List<UsuarioTreino> GetAll();
+        UsuarioTreino GetOne(int usuarioTreinoId, string email);
+        UsuarioTreino Create(CreateUsuarioTreinoCommand command);
+        //UsuarioTreino Update(UpdateUsuarioTreinoCommand command);
     }
 }

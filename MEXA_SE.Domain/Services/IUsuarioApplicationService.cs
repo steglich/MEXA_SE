@@ -5,10 +5,10 @@ namespace MEXA_SE.Domain.Services
 {
     public interface IUsuarioApplicationService
     {
-        Usuario GetAuthenticateUsuario(string emial, string senha);
+        Usuario GetAuthenticateUsuario(string email, string senha);
         Usuario GetOne(int id);
         Usuario GetByEmail(string email);
-        void Create(RegisterUsuarioCommand command);
-        void Update(UpdateUsuarioCommand command);
+        Usuario Create(RegisterUsuarioCommand command);
+        Usuario Update(UpdateUsuarioCommand command);
     }
 }

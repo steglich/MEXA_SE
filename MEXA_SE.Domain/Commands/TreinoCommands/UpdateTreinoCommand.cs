@@ -2,13 +2,16 @@
 {
     public class UpdateTreinoCommand
     {
-        public UpdateTreinoCommand(int treinoId, string dsTreino)
+        public UpdateTreinoCommand(int treinoId, string dsTreino, int usuarioTeinoId)
         {
             this.TreinoId = treinoId;
             this.DsTreino = dsTreino;
+            this.UsuarioTreinoId = UsuarioTreinoId;
         }
 
         public int TreinoId { get; set; }
         public string DsTreino { get; set; }
+
+        public int UsuarioTreinoId { get; set; }
     }
 }

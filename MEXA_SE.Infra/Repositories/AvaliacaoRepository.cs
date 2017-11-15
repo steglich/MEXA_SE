@@ -28,9 +28,14 @@ namespace MEXA_SE.Infra.Repositories
             return _context.Avaliacao.ToList();
         }
 
-        public Avaliacao GetOne(int usuarioId, int fichaId, string email)
+        public Avaliacao GetId(int avaliacaoId)
         {
-            return _context.Avaliacao.Where(AvaliacaoSpecs.GetAll(usuarioId, fichaId, email)).FirstOrDefault();
+            return _context.Avaliacao.Find(avaliacaoId);
+        }
+
+        public Avaliacao GetOne(int avaliacaoId, string email)
+        {
+            return _context.Avaliacao.Where(AvaliacaoSpecs.GetAll(avaliacaoId, email)).FirstOrDefault();
         }
 
         public void Update(Avaliacao avaliacao)
