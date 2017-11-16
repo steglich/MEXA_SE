@@ -145,6 +145,8 @@
     <Compile Include="Controllers\AtividadeDiaController.cs" />
     <Compile Include="Controllers\AvaliacaoController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\EvolucaoTreinoController.cs" />
+    <Compile Include="Controllers\ExercicioController.cs" />
     <Compile Include="Controllers\FichaController.cs" />
     <Compile Include="Controllers\TreinoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />

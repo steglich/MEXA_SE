@@ -18,7 +18,7 @@ namespace MEXA_SE.ApplicationService
 
         public Exercicio Create(CreateExercicioCommand command)
         {
-            var exercicio = new Exercicio(command.DsExercicio);
+            var exercicio = new Exercicio(command.DsExercicio, command.TreinoId);
             exercicio.CreateExercicio();
             _repository.Create(exercicio);
 

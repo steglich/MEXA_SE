@@ -9,12 +9,12 @@ namespace MEXA_SE.Domain.Entities
         {
 
         }
-        public EvolucaoTreino(int repeticao, int carga, DateTime aumentoTreino)
+        public EvolucaoTreino(int repeticao, int carga, DateTime aumentoTreino, int exercicioId)
         {
             this.Repeticao = repeticao;
             this.Carga = carga;
             this.AumetoTreino = aumentoTreino;
-            //this.ExercicioId = exercicioId;
+            this.ExercicioId = exercicioId;
         }
 
         public int EvolucaoTreinoId { get; set; }

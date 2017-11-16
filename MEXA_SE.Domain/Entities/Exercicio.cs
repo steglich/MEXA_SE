@@ -9,10 +9,10 @@ namespace MEXA_SE.Domain.Entities
         {
 
         }
-        public Exercicio(string dsExercicio)
+        public Exercicio(string dsExercicio, int treinoId)
         {
             this.DsExercicio = dsExercicio;
-            //this.TreinoId = treinoId;
+            this.TreinoId = treinoId;
 
             this.EvolucaoTreino = new List<EvolucaoTreino>();
         }

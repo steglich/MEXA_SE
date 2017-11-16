@@ -66,6 +66,30 @@ namespace MEXA_SE.Api.Controllers
             //return CreateResponse(HttpStatusCode.Created, usuarios);
         }
 
+        [HttpPost]
+        [Route("api/usuarios/autenticacao/{email},{emails},{senha}")]
+        //[Authorize(Roles = "admin")]
+        public Task<HttpResponseMessage> Post(string email, string emails, string senha)
+        {
+            string teste = email + "." + emails;
+            var response = new HttpResponseMessage();
+            try
+            {
+                var usuarios = _service.GetAuthenticateUsuario(teste, senha);
+                response = Request.CreateResponse(HttpStatusCode.OK, usuarios);
+            }
+            catch
+            {
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Procura por email não encontrada!");
+            }
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+
+            //var usuarios = _service.GetByEmail(email);
+            //return CreateResponse(HttpStatusCode.OK, usuarios);
+        }
+
         [HttpGet]
         [Route("api/usuarios/id/{id}")]
         //[Authorize(Roles = "admin")]

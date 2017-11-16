@@ -18,7 +18,7 @@ namespace MEXA_SE.ApplicationService
 
         public EvolucaoTreino Create(CreateEvolucaoTreinoCommand command)
         {
-            var evolucaoTreino = new EvolucaoTreino(command.Repeticao, command.Carga, command.AumetoTreino);
+            var evolucaoTreino = new EvolucaoTreino(command.Repeticao, command.Carga, command.AumetoTreino, command.ExercicioId);
             evolucaoTreino.CreateEvolucaoTreino();
             _repository.Create(evolucaoTreino);
 

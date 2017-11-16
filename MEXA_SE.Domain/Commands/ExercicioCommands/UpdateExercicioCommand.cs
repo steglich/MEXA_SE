@@ -8,16 +8,14 @@ namespace MEXA_SE.Domain.Commands.ExercicioCommands
 {
     public class UpdateExercicioCommand
     {
-        public UpdateExercicioCommand(int exercicioId, string dsExercicio, int treinoId)
+        public UpdateExercicioCommand(int exercicioId, string dsExercicio)
         {
             this.ExercicioId = exercicioId;
             this.DsExercicio = dsExercicio;
-            this.TreinoId = treinoId;
         }
 
         public int ExercicioId { get; set; }
         public string DsExercicio { get; set; }
-        public int TreinoId { get; set; }
 
     }
 }
