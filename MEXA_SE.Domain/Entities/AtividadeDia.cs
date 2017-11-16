@@ -5,10 +5,10 @@ namespace MEXA_SE.Domain.Entities
 {
     public class AtividadeDia
     {
-        public AtividadeDia(int usuarioId, DateTime atividadeConcluida)
+        public AtividadeDia(int usuarioId)
         {
+            this.AtividadeConcluida = DateTime.Now;
             this.UsuarioId = usuarioId;
-            this.AtividadeConcluida = atividadeConcluida;
         }
 
         public int AtividadeDiaId { get; set; }

@@ -24,7 +24,7 @@ namespace MEXA_SE.Infra.Repositories
 
         public List<AtividadeDia> GetAll()
         {
-            return _context.AtividadeDia.ToList();
+            return _context.AtividadeDia.Where(x => x.UsuarioId == x.Usuario.UsuarioId).ToList();
         }
 
         //public AtividadeDia GetOne(int atividadeDiaId, string email)
@@ -32,10 +32,11 @@ namespace MEXA_SE.Infra.Repositories
         //    throw new System.NotImplementedException();
         //}
 
-        public AtividadeDia GetOne(int atividadeDiaId, string email)
+        public AtividadeDia GetOne(string email)
         {
 
-            return _context.AtividadeDia.Where(AtividadeDiaSpecs.GetAllDias(atividadeDiaId, email)).FirstOrDefault();
+            return _context.AtividadeDia.Where(AtividadeDiaSpecs.GetAllDias(email)).FirstOrDefault();
+            //return _context.AtividadeDia.Where(AtividadeDiaSpecs.GetAllDias(email)).FirstOrDefault();
             //return _context.AtividadeDia.Where(x => x.Usuario.Email.Equals(email) && x.AtividadeDiaId == atividadeDiaId).FirstOrDefault();
         }
 

@@ -6,11 +6,15 @@ namespace MEXA_SE.Domain.Entities
 {
     public class UsuarioTreino
     {
-        public UsuarioTreino( DateTime dtTreino)
+        public UsuarioTreino()
         {
-            //this.UsuarioId = usuarioId;
+
+        }
+        public UsuarioTreino(int usuarioId)
+        {
+            this.DtTreino = DateTime.Now;
+            this.UsuarioId = usuarioId;
             //this.TreinoId = treinoId;
-            this.DtTreino = dtTreino;
 
             this.Treino = new List<Treino>();
         }

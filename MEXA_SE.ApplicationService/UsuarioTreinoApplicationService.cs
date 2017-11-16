@@ -19,7 +19,7 @@ namespace MEXA_SE.ApplicationService
         public UsuarioTreino Create(CreateUsuarioTreinoCommand command)
         {
             //var usuarioTreino = new UsuarioTreino(command.UsuarioId, command.TreinoId, command.DtTreino);
-            var usuarioTreino = new UsuarioTreino(command.DtTreino);
+            var usuarioTreino = new UsuarioTreino(command.UsuarioId);
             usuarioTreino.CreateUsuarioTreino();
             _repository.Create(usuarioTreino);
 

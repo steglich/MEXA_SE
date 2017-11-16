@@ -18,7 +18,7 @@ namespace MEXA_SE.ApplicationService
 
         public AtividadeDia Create(CreateAtividadeDiaCommand command)
         {
-            var atividadeDia = new AtividadeDia(command.UsuarioId, command.AtividadeConcluida);
+            var atividadeDia = new AtividadeDia(command.UsuarioId);
             atividadeDia.CreateAtividadeDia();
             _repository.Create(atividadeDia);
 
@@ -35,9 +35,9 @@ namespace MEXA_SE.ApplicationService
             return _repository.GetAll();
         }
 
-        public AtividadeDia GetOne(int atividadeDiaId, string email)
+        public AtividadeDia GetOne(string email)
         {
-            return _repository.GetOne(atividadeDiaId, email);
+            return _repository.GetOne(email);
         }
 
         //public AtividadeDia Update(UpdateAtividadeDiaCommand command)

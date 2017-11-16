@@ -6,7 +6,7 @@ namespace MEXA_SE.Domain.Repositories
     public interface IAtividadeDiaRepository
     {
         List<AtividadeDia> GetAll();
-        AtividadeDia GetOne(int atividadeDiaId, string email);
+        AtividadeDia GetOne(string email);
         void Create(AtividadeDia atividadeDia);
         void Update(AtividadeDia atividadeDia);
     }

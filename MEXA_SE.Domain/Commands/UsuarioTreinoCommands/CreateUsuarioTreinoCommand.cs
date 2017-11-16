@@ -4,14 +4,14 @@ namespace MEXA_SE.Domain.Commands.UsuarioTreinoCommands
 {
     public class CreateUsuarioTreinoCommand
     {
-        public CreateUsuarioTreinoCommand(DateTime dtTreino, int usuarioId)
+        public CreateUsuarioTreinoCommand(int usuarioId)
         {
-            this.DtTreino = dtTreino;
+            //this.DtTreino = dtTreino;
             this.UsuarioId = usuarioId;
         }
 
 
-        public DateTime DtTreino { get; private set; }
+        //public DateTime DtTreino { get; private set; }
         public int UsuarioId { get; set; }
     }
 }

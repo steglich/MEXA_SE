@@ -7,7 +7,7 @@ namespace MEXA_SE.Domain.Services
     public interface IAtividadeDiaApplicationService
     {
         List<AtividadeDia> GetAll();
-        AtividadeDia GetOne(int atividadeDiaId, string email);
+        AtividadeDia GetOne(string email);
         AtividadeDia Create(CreateAtividadeDiaCommand command);
         //AtividadeDia Update(UpdateAtividadeDiaCommand command);
     }
