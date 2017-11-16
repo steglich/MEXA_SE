@@ -5,6 +5,10 @@ namespace MEXA_SE.Domain.Entities
 {
     public class Exercicio
     {
+        public Exercicio()
+        {
+
+        }
         public Exercicio(string dsExercicio)
         {
             this.DsExercicio = dsExercicio;

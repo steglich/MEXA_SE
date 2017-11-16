@@ -146,6 +146,7 @@
     <Compile Include="Controllers\AvaliacaoController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\FichaController.cs" />
+    <Compile Include="Controllers\TreinoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\UsuarioTreinoController.cs" />
     <Compile Include="Helpers\DomainEventsContainer.cs" />

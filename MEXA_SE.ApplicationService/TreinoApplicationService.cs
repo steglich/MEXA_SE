@@ -18,7 +18,7 @@ namespace MEXA_SE.ApplicationService
 
         public Treino Create(CreateTreinoCommand command)
         {
-            var treino = new Treino(command.DsTreino);
+            var treino = new Treino(command.DsTreino, command.UsuarioTreinoId);
             treino.CreateTreino();
             _repository.Create(treino);
 

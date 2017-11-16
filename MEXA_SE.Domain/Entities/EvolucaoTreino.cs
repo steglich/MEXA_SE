@@ -5,6 +5,10 @@ namespace MEXA_SE.Domain.Entities
 {
     public class EvolucaoTreino
     {
+        public EvolucaoTreino()
+        {
+
+        }
         public EvolucaoTreino(int repeticao, int carga, DateTime aumentoTreino)
         {
             this.Repeticao = repeticao;

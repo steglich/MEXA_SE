@@ -5,9 +5,14 @@ namespace MEXA_SE.Domain.Entities
 {
     public class Treino
     {
-        public Treino(string dsTreino)
+        public Treino()
+        {
+
+        }
+        public Treino(string dsTreino, int usuarioTreinoId)
         {
             this.DsTreino = dsTreino;
+            this.UsuarioTreinoId = usuarioTreinoId;
 
             this.Exercicio = new List<Exercicio>();
             //this.UsuarioTreino = new List<UsuarioTreino>();
@@ -30,7 +35,7 @@ namespace MEXA_SE.Domain.Entities
             if (!this.UpdateTreinoScopIsValid(dsTreino))
                 return;
 
-            this.DsTreino = DsTreino;
+            this.DsTreino = dsTreino;
         }
     }
 }

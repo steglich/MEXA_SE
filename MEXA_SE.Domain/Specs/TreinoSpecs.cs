@@ -8,7 +8,7 @@ namespace MEXA_SE.Domain.Specs
     {
         public static Expression<Func<Treino, bool>> GetAll(int treinoId, string email)
         {
-            return x => x.TreinoId == treinoId && x.UsuarioTreino.Usuario.Email == email;
+            return x => x.TreinoId == treinoId && x.UsuarioTreino.Usuario.Email.Equals(email);
         }
     }
 }
