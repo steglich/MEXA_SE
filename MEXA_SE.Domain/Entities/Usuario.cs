@@ -10,12 +10,12 @@ namespace MEXA_SE.Domain.Entities
         {
 
         }
-        public Usuario(string nome, string email, string senha, bool isAdmin)
+        public Usuario(string nome, string email, string senha)
         {
             this.Nome = nome;
             this.Email = email;
             this.Senha = StringHelper.Encrypt(senha);
-            this.IsAdmin = isAdmin;
+            this.IsAdmin = true;
 
             this.AtividadeDia = new List<AtividadeDia>();
             this.Avaliacao = new List<Avaliacao>();

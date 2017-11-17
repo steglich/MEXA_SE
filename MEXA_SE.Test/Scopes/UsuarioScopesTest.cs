@@ -36,13 +36,13 @@ namespace MEXA_SE.Test.Scopes
         //    Assert.AreEqual(true, UsuarioScopes.UpdateUsuarioScopIsValid(usuario, "marlon steglich", "marlon@marlon.com", "1234567h"));
         //}
 
-        [TestMethod]
-        [TestCategory("Usuario")]
-        public void Deve_Validar_Usuario()
-        {
-            var usuario = new Usuario("marlon", "marlon@marlon.com", "1234567h", true);
-            Assert.AreEqual(true, UsuarioScopes.AuthenticateUsuarioScopIsValid(usuario, "marlon@marlon.com", StringHelper.Encrypt("1234567h")));
-        }
+        //[TestMethod]
+        //[TestCategory("Usuario")]
+        //public void Deve_Validar_Usuario()
+        //{
+        //    var usuario = new Usuario("marlon", "marlon@marlon.com", "1234567h", true);
+        //    Assert.AreEqual(true, UsuarioScopes.AuthenticateUsuarioScopIsValid(usuario, "marlon@marlon.com", StringHelper.Encrypt("1234567h")));
+        //}
 
         //[TestMethod]
         //[TestCategory("Avaliação")]

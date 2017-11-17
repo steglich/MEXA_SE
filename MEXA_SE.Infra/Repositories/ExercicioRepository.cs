@@ -37,9 +37,9 @@ namespace MEXA_SE.Infra.Repositories
             return _context.Exercicio.Find(exercicioId);
         }
 
-        public Exercicio GetOne(int exercicioId, string email)
+        public Exercicio GetOne(string email)
         {
-            return _context.Exercicio.Where(ExercicioSpecs.GetAll(exercicioId, email)).FirstOrDefault();
+            return _context.Exercicio.OrderByDescending(x => x.Treino.UsuarioTreino.DtTreino).FirstOrDefault(ExercicioSpecs.GetAll(email));
         }
 
         public void Update(Exercicio exercico)

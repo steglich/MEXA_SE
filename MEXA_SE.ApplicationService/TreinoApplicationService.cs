@@ -35,9 +35,9 @@ namespace MEXA_SE.ApplicationService
             return _repository.GetAll();
         }
 
-        public Treino GetOne(int treinoId, string email)
+        public Treino GetOne(string email)
         {
-            return _repository.GetOne(treinoId, email); ;
+            return _repository.GetOne(email); ;
         }
 
         public Treino GetTreino(string treino)

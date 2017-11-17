@@ -5,6 +5,10 @@ namespace MEXA_SE.Domain.Entities
 {
     public class AtividadeDia
     {
+        public AtividadeDia()
+        {
+
+        }
         public AtividadeDia(int usuarioId)
         {
             this.AtividadeConcluida = DateTime.Now;

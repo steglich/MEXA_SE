@@ -38,8 +38,7 @@ namespace MEXA_SE.Api.Controllers
                 var command = new RegisterUsuarioCommand(
                     email: (string)body.email,
                     senha: (string)body.senha,
-                    nome: (string)body.nome,
-                    isAdmin: (bool)body.isAdmin
+                    nome: (string)body.nome
                 );
 
                 var usuarios = _service.Create(command);
@@ -66,16 +65,20 @@ namespace MEXA_SE.Api.Controllers
             //return CreateResponse(HttpStatusCode.Created, usuarios);
         }
 
+        //[HttpPost]
+        //[Route("api/usuarios/autenticacao/{email},{emails},{senha}")]
+        ////[Authorize(Roles = "admin")]
+        //public Task<HttpResponseMessage> Post(string email, string emails, string senha)
         [HttpPost]
-        [Route("api/usuarios/autenticacao/{email},{emails},{senha}")]
+        [Route("api/usuarios/valida/{email},{senha}")]
         //[Authorize(Roles = "admin")]
-        public Task<HttpResponseMessage> Post(string email, string emails, string senha)
+        public Task<HttpResponseMessage> Post(string email, string senha)
         {
-            string teste = email + "." + emails;
+            //string teste = email + "." + emails;
             var response = new HttpResponseMessage();
             try
             {
-                var usuarios = _service.GetAuthenticateUsuario(teste, senha);
+                var usuarios = _service.GetAuthenticateUsuario(email, senha);
                 response = Request.CreateResponse(HttpStatusCode.OK, usuarios);
             }
             catch

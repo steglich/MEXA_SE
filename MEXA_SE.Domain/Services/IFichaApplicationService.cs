@@ -7,7 +7,7 @@ namespace MEXA_SE.Domain.Services
     public interface IFichaApplicationService
     {
         List<Ficha> GetAll();
-        Ficha GetOne(int fichaId, string email);
+        Ficha GetOne(string email);
         Ficha Create(CreateFichaCommand command);
         Ficha Update(UpdateFichaCommand command);
     }

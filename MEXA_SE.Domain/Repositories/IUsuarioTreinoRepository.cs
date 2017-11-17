@@ -6,7 +6,7 @@ namespace MEXA_SE.Domain.Repositories
     public interface IUsuarioTreinoRepository
     {
         List<UsuarioTreino> GetAll();
-        UsuarioTreino GetOne(int usuarioTreinoId, string email);
+        UsuarioTreino GetOne(string email);
         void Create(UsuarioTreino usuarioTreino);
         void Update(UsuarioTreino usuarioTreino);
     }

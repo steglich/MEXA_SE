@@ -8,11 +8,7 @@ namespace MEXA_SE.Domain.Specs
     {
         public static Expression<Func<AtividadeDia, bool>> GetAllDias(string email)
         {
-            return x => x.Usuario.Email.Equals(email) && x.Usuario.UsuarioId == x.UsuarioId;
+            return x => x.Usuario.Email.Equals(email);
         }
-        //public static Expression<Func<AtividadeDia, bool>> GetAllDias(int atividadeDiaId, string email)
-        //{
-        //    return x => x.AtividadeDiaId == atividadeDiaId && x.Usuario.Email.Equals(email);
-        //}
     }
 }

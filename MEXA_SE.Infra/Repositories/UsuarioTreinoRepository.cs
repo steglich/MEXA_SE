@@ -27,9 +27,9 @@ namespace MEXA_SE.Infra.Repositories
             return _context.UsuarioTreino.ToList();
         }
 
-        public UsuarioTreino GetOne(int usuarioTreinoId, string email)
+        public UsuarioTreino GetOne(string email)
         {
-            return _context.UsuarioTreino.Where(UsuarioTreinoSpecs.GetAll(usuarioTreinoId, email)).FirstOrDefault();
+            return _context.UsuarioTreino.OrderByDescending(x => x.DtTreino).FirstOrDefault(UsuarioTreinoSpecs.GetAll(email));
         }
 
         public void Update(UsuarioTreino usuarioTreino)

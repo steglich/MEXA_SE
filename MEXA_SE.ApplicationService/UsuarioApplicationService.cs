@@ -17,7 +17,7 @@ namespace MEXA_SE.ApplicationService
 
         public Usuario Create(RegisterUsuarioCommand command)
         {
-            var usuario = new Usuario(command.Nome, command.Email, command.Senha, command.IsAdmin);
+            var usuario = new Usuario(command.Nome, command.Email, command.Senha);
             usuario.RegisterUsuario();
             _repository.Create(usuario);
 

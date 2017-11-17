@@ -35,9 +35,7 @@ namespace MEXA_SE.Infra.Repositories
         public AtividadeDia GetOne(string email)
         {
 
-            return _context.AtividadeDia.Where(AtividadeDiaSpecs.GetAllDias(email)).FirstOrDefault();
-            //return _context.AtividadeDia.Where(AtividadeDiaSpecs.GetAllDias(email)).FirstOrDefault();
-            //return _context.AtividadeDia.Where(x => x.Usuario.Email.Equals(email) && x.AtividadeDiaId == atividadeDiaId).FirstOrDefault();
+            return _context.AtividadeDia.OrderBy(x => x.AtividadeConcluida).FirstOrDefault(AtividadeDiaSpecs.GetAllDias(email));
         }
 
         public void Update(AtividadeDia atividadeDia)

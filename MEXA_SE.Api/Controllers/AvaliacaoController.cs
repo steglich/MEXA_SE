@@ -58,15 +58,15 @@ namespace MEXA_SE.Api.Controllers
         }
 
         [HttpGet]
-        [Route("api/avaliacao/data/{id},{email},{emails}")]
+        [Route("api/avaliacao/data/{email},{emails}")]
         //[Authorize(Roles = "admin")]
-        public Task<HttpResponseMessage> Get(int id, string email, string emails)
+        public Task<HttpResponseMessage> Get(string email, string emails)
         {
             string teste = email + "." + emails;
             var response = new HttpResponseMessage();
             try
             {
-                var avaliacao = _service.GetOne(id, teste);
+                var avaliacao = _service.GetOne(teste);
                 response = Request.CreateResponse(HttpStatusCode.OK, avaliacao);
             }
             catch

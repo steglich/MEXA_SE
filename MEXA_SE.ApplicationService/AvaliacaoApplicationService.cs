@@ -35,9 +35,9 @@ namespace MEXA_SE.ApplicationService
             return _repository.GetAll();
         }
 
-        public Avaliacao GetOne(int avaliacaoId, string email)
+        public Avaliacao GetOne(string email)
         {
-            return _repository.GetOne(avaliacaoId, email);
+            return _repository.GetOne(email);
         }
 
         public Avaliacao Update(UpdateAvaliacaoCommand command)

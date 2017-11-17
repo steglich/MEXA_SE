@@ -37,9 +37,9 @@ namespace MEXA_SE.ApplicationService
             return _repository.GetAll();
         }
 
-        public Ficha GetOne(int fichaId, string email)
+        public Ficha GetOne(string email)
         {
-            return _repository.GetOne(fichaId, email);
+            return _repository.GetOne(email);
         }
 
         public Ficha Update(UpdateFichaCommand command)

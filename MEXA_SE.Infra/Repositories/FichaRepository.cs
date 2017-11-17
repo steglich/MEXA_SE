@@ -33,9 +33,9 @@ namespace MEXA_SE.Infra.Repositories
             return _context.Ficha.Find(fichaId);
         }
 
-        public Ficha GetOne(int fichaId, string email)
+        public Ficha GetOne(string email)
         {
-            return _context.Ficha.Where(FichaSpecs.GetAll(fichaId, email)).FirstOrDefault();
+            return _context.Ficha.OrderByDescending(x => x.Avaliacao.DtAvaliacao).FirstOrDefault(FichaSpecs.GetAll(email));
         }
 
         public void Update(Ficha ficha)

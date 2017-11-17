@@ -7,7 +7,7 @@ namespace MEXA_SE.Domain.Services
     public interface IExercicioApplicationService
     {
         List<Exercicio> GetAll();
-        Exercicio GetOne(int exercicioId, string email);
+        Exercicio GetOne(string email);
         Exercicio GetExercicio(string exercicio);
         Exercicio Create(CreateExercicioCommand command);
         Exercicio Update(UpdateExercicioCommand command);

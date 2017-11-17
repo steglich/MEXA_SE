@@ -7,7 +7,7 @@ namespace MEXA_SE.Domain.Repositories
     {
         List<Avaliacao> GetAll();
         Avaliacao GetId(int avaliacaoId);
-        Avaliacao GetOne(int avaliacaoId, string email);
+        Avaliacao GetOne( string email);
         void Create(Avaliacao avaliacao);
         void Update(Avaliacao avaliacao);
     }

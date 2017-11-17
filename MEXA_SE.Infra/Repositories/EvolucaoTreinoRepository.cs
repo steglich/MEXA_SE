@@ -32,9 +32,9 @@ namespace MEXA_SE.Infra.Repositories
             return _context.EvolucaoTreino.Find(evolucaoTreinoId);
         }
 
-        public EvolucaoTreino GetOne(int evolucaoTreinoId, string email)
+        public EvolucaoTreino GetOne(string email)
         {
-            return _context.EvolucaoTreino.Where(EvolucaoTreinoSpecs.GetAll(evolucaoTreinoId, email)).FirstOrDefault();
+            return _context.EvolucaoTreino.OrderByDescending(x => x.AumetoTreino).FirstOrDefault(EvolucaoTreinoSpecs.GetAll(email));
         }
 
         public void Update(EvolucaoTreino evolucaoTreino)

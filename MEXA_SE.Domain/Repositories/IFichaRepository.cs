@@ -7,7 +7,7 @@ namespace MEXA_SE.Domain.Repositories
     {
         List<Ficha> GetAll();
         Ficha GetId(int fichaId);
-        Ficha GetOne(int fichaId, string email);
+        Ficha GetOne(string email);
         void Create(Ficha ficha);
         void Update(Ficha ficha);
     }

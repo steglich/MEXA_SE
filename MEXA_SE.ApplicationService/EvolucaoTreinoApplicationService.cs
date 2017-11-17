@@ -35,9 +35,9 @@ namespace MEXA_SE.ApplicationService
             return _repository.GetAll();
         }
 
-        public EvolucaoTreino GetOne(int evolucaoTreinoId, string email)
+        public EvolucaoTreino GetOne(string email)
         {
-            return _repository.GetOne(evolucaoTreinoId, email);
+            return _repository.GetOne(email);
         }
 
         public EvolucaoTreino Update(UpdateEvolucaoTreinoCommand command)

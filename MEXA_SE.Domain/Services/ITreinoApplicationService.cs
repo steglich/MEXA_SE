@@ -7,7 +7,7 @@ namespace MEXA_SE.Domain.Services
     public interface ITreinoApplicationService
     {
         List<Treino> GetAll();
-        Treino GetOne(int treinoId, string email);
+        Treino GetOne(string email);
         Treino GetTreino(string treino);
         Treino Create(CreateTreinoCommand command);
         Treino Update(UpdateTreinoCommand command);

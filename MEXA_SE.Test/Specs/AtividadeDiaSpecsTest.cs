@@ -13,26 +13,26 @@ namespace MEXA_SE.Test.Specs
     [TestClass]
     public class AtividadeDiaSpecsTest
     {
-        private List<Usuario> _usuario;
+        //private List<Usuario> _usuario;
 
-        public AtividadeDiaSpecsTest()
-        {
-            this._usuario = new List<Usuario>();
-            _usuario.Add(new Usuario("Marlon steglich", "marlon@marlon.com", "1234567h", true));
-            _usuario.Add(new Usuario("Marlon steglich", "marlon1@marlon.com", "1234567h", true));
-            _usuario.Add(new Usuario("Marlon steglich", "marlon2@marlon.com", "1234567h", true));
-        }
+        //public AtividadeDiaSpecsTest()
+        //{
+        //    this._usuario = new List<Usuario>();
+        //    _usuario.Add(new Usuario("Marlon steglich", "marlon@marlon.com", "1234567h", true));
+        //    _usuario.Add(new Usuario("Marlon steglich", "marlon1@marlon.com", "1234567h", true));
+        //    _usuario.Add(new Usuario("Marlon steglich", "marlon2@marlon.com", "1234567h", true));
+        //}
         
-        [TestMethod]
-        [TestCategory("AtividadeDia Specs-GetAllDia")]
-        public void Deve_Validar_AtividadeDia_Specs()
-        {
-            var exp = UsuarioSpecs.AuthenticateUsuario("marlon2@marlon.com", "1234567h");
-            var usuario = _usuario.AsQueryable().Where(exp).FirstOrDefault();
+        //[TestMethod]
+        //[TestCategory("AtividadeDia Specs-GetAllDia")]
+        //public void Deve_Validar_AtividadeDia_Specs()
+        //{
+        //    var exp = UsuarioSpecs.AuthenticateUsuario("marlon2@marlon.com", "1234567h");
+        //    var usuario = _usuario.AsQueryable().Where(exp).FirstOrDefault();
 
-            //Assert.AreEqual(null, usuario);
-            Assert.AreNotEqual(null, usuario);
-        }
+        //    //Assert.AreEqual(null, usuario);
+        //    Assert.AreNotEqual(null, usuario);
+        //}
 
     }
 }
