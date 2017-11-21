@@ -12,7 +12,7 @@ namespace MEXA_SE.Domain.Entities
         }
         public UsuarioTreino(int usuarioId)
         {
-            this.DtTreino = DateTime.Now;
+            this.DtTreino = DateTime.Now.Date;
             this.UsuarioId = usuarioId;
             //this.TreinoId = treinoId;
 

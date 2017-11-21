@@ -53,16 +53,18 @@ namespace MEXA_SE.Api.Controllers
             return tsc.Task;
         }
 
-        [HttpGet]
-        [Route("api/atividade/email/{email},{emails}")]
+        [HttpPost]
+        [Route("api/atividade/email/")]
         //[Authorize(Roles = "admin")]
-        public Task<HttpResponseMessage> Get(string email, string emails)
+        public Task<HttpResponseMessage> PostEmail([FromBody]dynamic body)
         {
-            string teste = email + "." + emails;
+            //string teste = email + "." + emails;
+
+            string email = (string)body.email;
             var response = new HttpResponseMessage();
             try
             {
-                var atividade = _service.GetOne(teste);
+                var atividade = _service.GetOne(email);
                 response = Request.CreateResponse(HttpStatusCode.OK, atividade);
             }
             catch

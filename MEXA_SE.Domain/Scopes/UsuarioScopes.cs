@@ -33,12 +33,12 @@ namespace MEXA_SE.Domain.Scopes
         public static bool AuthenticateUsuarioScopIsValid(this Usuario usuario, string email, string encryptedSenha)
         {
             return AssertionConcern.IsSatisfiedBy(
-                AssertionConcern.AssertNotEmpty(email, "O campo e-mail é Obrigatório!"),
-                AssertionConcern.AssertIsValidEmail(email, "O campo email invalido!"),
-                AssertionConcern.AssertAreEquals(usuario.Email, email, "Usuário ou senha inválido!"),
-                AssertionConcern.AssertNotEmpty(encryptedSenha, "O campo senha é Obrigatória!"),
-                AssertionConcern.AssertLength(encryptedSenha, 8, "A senha deve conter no minimo 8 caracteres!"),
-                AssertionConcern.AssertAreEquals(usuario.Senha, encryptedSenha, "Usuário ou senha inválido!")
+                AssertionConcern.AssertNotEmpty(email, "O campo email ou senha invalido!"),
+                AssertionConcern.AssertIsValidEmail(email, "O campo email ou senha invalido!"),
+                AssertionConcern.AssertAreEquals(usuario.Email, email, "O campo email ou senha invalido!"),
+                AssertionConcern.AssertNotEmpty(encryptedSenha, "O campo email ou senha invalido!"),
+                AssertionConcern.AssertLength(encryptedSenha, 8, "O campo email ou senha invalido!"),
+                AssertionConcern.AssertAreEquals(usuario.Senha, encryptedSenha, "O campo email ou senha invalido!")
                 );
         }
     }

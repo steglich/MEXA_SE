@@ -32,10 +32,15 @@ namespace MEXA_SE.Infra.Repositories
         //    throw new System.NotImplementedException();
         //}
 
-        public AtividadeDia GetOne(string email)
+        public List<AtividadeDia> GetOne(string email)
         {
+            return _context.AtividadeDia.Where(AtividadeDiaSpecs.GetAllDias(email)).OrderBy(x => x.AtividadeConcluida).ToList();
+            //foreach (var item in a)
+            //{
+            //    var t = item;
+            //}
 
-            return _context.AtividadeDia.OrderBy(x => x.AtividadeConcluida).FirstOrDefault(AtividadeDiaSpecs.GetAllDias(email));
+            //return _context.AtividadeDia.OrderBy(x => x.AtividadeConcluida).FirstOrDefault(AtividadeDiaSpecs.GetAllDias(email));
         }
 
         public void Update(AtividadeDia atividadeDia)

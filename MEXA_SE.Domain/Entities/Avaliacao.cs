@@ -13,7 +13,7 @@ namespace MEXA_SE.Domain.Entities
         public Avaliacao(DateTime reavaliacao, int usuarioId)
         {
             //this.FichaId = fichaId;
-            this.DtAvaliacao = DateTime.Now;
+            this.DtAvaliacao = DateTime.Now.Date;
             this.Reavaliacao = reavaliacao;
             this.UsuarioId = usuarioId;
 

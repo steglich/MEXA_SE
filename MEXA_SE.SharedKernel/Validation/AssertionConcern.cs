@@ -104,11 +104,13 @@ namespace MEXA_SE.SharedKernel.Validation
         // validação de data igual a data do dia
         public static DomainNotification AssertDateEqualToDate(DateTime dataValue, string message)
         {
-            DateTime data = DateTime.Now;
-            string data2 = data.ToShortDateString();
-            string data3 = dataValue.ToShortDateString();
+            //var a = DateTime.Now.Date;
 
-            return (!data2.Equals(data3)) ?
+            DateTime data = DateTime.Now.Date;
+            //string data2 = data.ToShortDateString();
+            //string data3 = dataValue.ToShortDateString();
+
+            return (!data.Equals(dataValue)) ?
                 new DomainNotification("AssertArgumentLength", message) : null;
         }
 

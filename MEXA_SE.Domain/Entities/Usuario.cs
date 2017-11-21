@@ -21,7 +21,7 @@ namespace MEXA_SE.Domain.Entities
             this.Avaliacao = new List<Avaliacao>();
             this.UsuarioTreino = new List<UsuarioTreino>();
         }
-        
+
         public int UsuarioId { get; set; }        
         public string Nome { get; private set; }        
         public string Email { get; private set; }        

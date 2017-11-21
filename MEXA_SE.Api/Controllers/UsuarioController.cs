@@ -52,45 +52,30 @@ namespace MEXA_SE.Api.Controllers
             var tsc = new TaskCompletionSource<HttpResponseMessage>();
             tsc.SetResult(response);
             return tsc.Task;
-
-            //var command = new RegisterUsuarioCommand(
-            //    email: (string)body.email,
-            //    senha: (string)body.senha,
-            //    nome: (string)body.nome,
-            //    isAdmin: (bool)body.isAdmin
-            //);
-
-            //var usuarios = _service.Create(command);
-
-            //return CreateResponse(HttpStatusCode.Created, usuarios);
         }
-
-        //[HttpPost]
-        //[Route("api/usuarios/autenticacao/{email},{emails},{senha}")]
-        ////[Authorize(Roles = "admin")]
-        //public Task<HttpResponseMessage> Post(string email, string emails, string senha)
+        
         [HttpPost]
-        [Route("api/usuarios/valida/{email},{senha}")]
+        [Route("api/usuarios/valida/")]
         //[Authorize(Roles = "admin")]
-        public Task<HttpResponseMessage> Post(string email, string senha)
+        public Task<HttpResponseMessage> PostAutentica([FromBody]dynamic body)
         {
-            //string teste = email + "." + emails;
+            string email= (string)body.email;
+            string senha = (string)body.senha;
             var response = new HttpResponseMessage();
-            try
+
+            var usuarios = _service.GetAuthenticateUsuario(email, senha);
+
+            if (usuarios == null)
             {
-                var usuarios = _service.GetAuthenticateUsuario(email, senha);
-                response = Request.CreateResponse(HttpStatusCode.OK, usuarios);
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Email ou Senha inválido!");
             }
-            catch
+            else
             {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, "Procura por email não encontrada!");
+                response = Request.CreateResponse(HttpStatusCode.OK, usuarios);
             }
             var tsc = new TaskCompletionSource<HttpResponseMessage>();
             tsc.SetResult(response);
             return tsc.Task;
-
-            //var usuarios = _service.GetByEmail(email);
-            //return CreateResponse(HttpStatusCode.OK, usuarios);
         }
 
         [HttpGet]
@@ -101,16 +86,18 @@ namespace MEXA_SE.Api.Controllers
             var usuarios = _service.GetOne(id);
             return CreateResponse(HttpStatusCode.OK, usuarios);
         }
-
-        [HttpGet]
-        [Route("api/usuarios/email/{email},{emails}")]
+        
+        [HttpPost]
+        [Route("api/usuarios/getEmail/")]
         //[Authorize(Roles = "admin")]
-        public Task<HttpResponseMessage> Get(string email, string emails)
+        public Task<HttpResponseMessage> GetEmail([FromBody]dynamic body)
         {
+            string email = (string)body.email;
+            
             var response = new HttpResponseMessage();
             try
             {
-                var usuarios = _service.GetByEmail(email + "." + emails);
+                var usuarios = _service.GetByEmail(email);
                 response = Request.CreateResponse(HttpStatusCode.OK, usuarios);
             }
             catch
@@ -120,21 +107,22 @@ namespace MEXA_SE.Api.Controllers
             var tsc = new TaskCompletionSource<HttpResponseMessage>();
             tsc.SetResult(response);
             return tsc.Task;
-
-            //var usuarios = _service.GetByEmail(email);
-            //return CreateResponse(HttpStatusCode.OK, usuarios);
+            
         }
 
         [HttpPut]
-        [Route("api/usuarios/update/{id}")]
-        public Task<HttpResponseMessage> Put(int id, [FromBody]dynamic body)
+        [Route("api/usuarios/update/")]
+        public Task<HttpResponseMessage> Put([FromBody]dynamic body)
         {
+
+
+            var usuariosUpdate = _service.GetByEmail((string)body.emailOld);
 
             var response = new HttpResponseMessage();
             try
             {
                 var command = new UpdateUsuarioCommand(
-                    id: (int)body.id,
+                    id: usuariosUpdate.UsuarioId,
                     email: (string)body.email,
                     senha: (string)body.senha,
                     nome: (string)body.nome

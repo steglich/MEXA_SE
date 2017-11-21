@@ -35,7 +35,7 @@ namespace MEXA_SE.ApplicationService
             return _repository.GetAll();
         }
 
-        public AtividadeDia GetOne(string email)
+        public List<AtividadeDia> GetOne(string email)
         {
             return _repository.GetOne(email);
         }

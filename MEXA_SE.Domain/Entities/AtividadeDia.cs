@@ -11,7 +11,7 @@ namespace MEXA_SE.Domain.Entities
         }
         public AtividadeDia(int usuarioId)
         {
-            this.AtividadeConcluida = DateTime.Now;
+            this.AtividadeConcluida = DateTime.Now.Date;
             this.UsuarioId = usuarioId;
         }
 
