@@ -8,6 +8,9 @@ namespace MEXA_SE.Domain.Services
     {
         List<Ficha> GetAll();
         Ficha GetOne(string email);
+        Ficha GetId(int id);
+        Ficha Get(int id);
+        Avaliacao GetAvaliacao(string email);
         Ficha Create(CreateFichaCommand command);
         Ficha Update(UpdateFichaCommand command);
     }

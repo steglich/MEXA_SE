@@ -17,6 +17,10 @@ namespace MEXA_SE.Api.Controllers
 {
     public class AvaliacaoController : BaseController
     {
+
+        private IUsuarioApplicationService _serviceUsuario;
+        private UsuarioRepository _repositoryUsuario;
+
         private IAvaliacaoApplicationService _service;
         private AvaliacaoRepository _repository;
         private UnitOfWork _unitOfWork;
@@ -26,9 +30,12 @@ namespace MEXA_SE.Api.Controllers
         {
             _dataContext = new DataContext();
             _repository = new AvaliacaoRepository(_dataContext);
+            _repositoryUsuario = new UsuarioRepository(_dataContext);
             _unitOfWork = new UnitOfWork(_dataContext);
 
             this._service = new AvaliacaoApplicationService(_repository, _unitOfWork);
+
+            this._serviceUsuario = new UsuarioApplicationService(_repositoryUsuario, _unitOfWork);
 
         }
 
@@ -36,17 +43,21 @@ namespace MEXA_SE.Api.Controllers
         [Route("api/avaliacao/create/")]
         public Task<HttpResponseMessage> Post([FromBody]dynamic body)
         {
+
+            var usuario = _serviceUsuario.GetByEmail((string)body.email);
+
             var response = new HttpResponseMessage();
             try
             {
                 var command = new CreateAvaliacaoCommand(
                     reavaliacao: (DateTime)body.reavaliacao,
-                    usuarioId: (int)body.usuarioid
+                    usuarioId: usuario.UsuarioId
+                //usuarioId: (int)body.usuarioid
                 );
 
                 var avaliacao = _service.Create(command);
 
-                return CreateResponse(HttpStatusCode.Created, avaliacao);
+                //return CreateResponse(HttpStatusCode.Created, avaliacao);
             }
             catch
             {
@@ -57,17 +68,18 @@ namespace MEXA_SE.Api.Controllers
             return tsc.Task;
         }
 
-        [HttpGet]
-        [Route("api/avaliacao/data/{email},{emails}")]
+        [HttpPost]
+        [Route("api/avaliacao/data/")]
         //[Authorize(Roles = "admin")]
-        public Task<HttpResponseMessage> Get(string email, string emails)
+        public Task<HttpResponseMessage> Get([FromBody]dynamic body)
         {
-            string teste = email + "." + emails;
+            var usuario = _serviceUsuario.GetByEmail((string)body.email);
+
             var response = new HttpResponseMessage();
             try
             {
-                var avaliacao = _service.GetOne(teste);
-                response = Request.CreateResponse(HttpStatusCode.OK, avaliacao);
+                var avaliacao = _service.GetOne(usuario.Email);
+                //response = Request.CreateResponse(HttpStatusCode.OK, avaliacao);
             }
             catch
             {
@@ -79,20 +91,24 @@ namespace MEXA_SE.Api.Controllers
         }
 
         [HttpPut]
-        [Route("api/avaliacao/update/{id}")]
-        public Task<HttpResponseMessage> Put(int id, [FromBody]dynamic body)
+        [Route("api/avaliacao/update/")]
+        public Task<HttpResponseMessage> Put([FromBody]dynamic body)
         {
+
+            var usuario = _serviceUsuario.GetByEmail((string)body.email);
 
             var response = new HttpResponseMessage();
             try
             {
+                var avaliacaoGet = _service.GetOne(usuario.Email);
+
                 var command = new UpdateAvaliacaoCommand(
-                    avaliacaoId: (int)body.id,
+                    avaliacaoId: avaliacaoGet.AvaliacaoId,
                     reavaliacao: (DateTime)body.reavaliacao
                 );
 
                 var avaliacao = _service.Update(command);
-                response = Request.CreateResponse(HttpStatusCode.OK, "Atualizado com sucesso!");
+                //response = Request.CreateResponse(HttpStatusCode.OK, "Atualizado com sucesso!");
             }
             catch
             {

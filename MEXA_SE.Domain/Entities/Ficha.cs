@@ -76,7 +76,7 @@ namespace MEXA_SE.Domain.Entities
             this.Peito = peito;
             this.Cintura = cintura;
             this.Quadril = quadril;
-            this.AnteBracoDireito = AnteBracoDireito;
+            this.AnteBracoDireito = anteBracoDireito;
             this.AnteBracoEsquerdo = anteBracoEsquerdo;
             this.BracoDireito = bracoDireito;
             this.BracoEsquerdo = bracoEsquerdo;

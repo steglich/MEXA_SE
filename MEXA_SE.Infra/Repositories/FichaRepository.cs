@@ -23,14 +23,30 @@ namespace MEXA_SE.Infra.Repositories
             _context.Ficha.Add(ficha);
         }
 
+        public Ficha Get(int fichaId)
+        {
+            return _context.Ficha.Where(FichaSpecs.GetIdFicha(fichaId)).FirstOrDefault();
+        }
+
         public List<Ficha> GetAll()
         {
             return _context.Ficha.ToList();
         }
+        public Avaliacao GetAvaliacao(string email)
+        {
+            return _context.Avaliacao.OrderByDescending(x => x.DtAvaliacao).FirstOrDefault(AvaliacaoSpecs.GetAll(email));
+        }
+
+        //public Ficha GetAvaliacao(string email)
+        //{
+        //    //return _context.Avaliacao.OrderByDescending(x => x.DtAvaliacao).FirstOrDefault(AvaliacaoSpecs.GetAll(email));
+        //    return _context.Avaliacao.OrderByDescending(x => x.DtAvaliacao).FirstOrDefault(AvaliacaoSpecs.GetAll(email));
+        //}
 
         public Ficha GetId(int fichaId)
         {
-            return _context.Ficha.Find(fichaId);
+            return _context.Ficha.Where(FichaSpecs.GetIdAvaliacao(fichaId)).FirstOrDefault();
+            //return _context.Ficha.OrderByDescending(x => x.Avaliacao.DtAvaliacao).FirstOrDefault(FichaSpecs.GetId(fichaId));
         }
 
         public Ficha GetOne(string email)

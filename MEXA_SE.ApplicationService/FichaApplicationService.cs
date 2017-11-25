@@ -32,9 +32,24 @@ namespace MEXA_SE.ApplicationService
             return null;
         }
 
+        public Ficha Get(int id)
+        {
+            return _repository.Get(id);
+        }
+
         public List<Ficha> GetAll()
         {
             return _repository.GetAll();
+        }
+
+        public Avaliacao GetAvaliacao(string email)
+        {
+            return _repository.GetAvaliacao(email);
+        }
+
+        public Ficha GetId(int id)
+        {
+            return _repository.GetId(id);
         }
 
         public Ficha GetOne(string email)
@@ -44,7 +59,7 @@ namespace MEXA_SE.ApplicationService
 
         public Ficha Update(UpdateFichaCommand command)
         {
-            var ficha = _repository.GetId(command.FichaId);
+            var ficha = _repository.Get(command.FichaId);
             ficha.UpdateFicha(command.Peso, command.Altura, command.Gordura, command.Peito, command.Cintura, command.Quadril,
                 command.AnteBracoDireito, command.AnteBracoEsquerdo, command.BracoDireito, command.BracoEsquerdo, command.CoxaDireita,
                 command.CoxaEsquerda, command.PantuDireita, command.PantuEsquerda);
