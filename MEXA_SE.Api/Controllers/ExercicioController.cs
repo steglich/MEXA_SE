@@ -13,6 +13,8 @@ namespace MEXA_SE.Api.Controllers
 {
     public class ExercicioController : BaseController
     {
+        private TreinoController _treinoController;
+
         private IExercicioApplicationService _service;
         private ExercicioRepository _repository;
         private UnitOfWork _unitOfWork;
@@ -25,7 +27,7 @@ namespace MEXA_SE.Api.Controllers
 
             this._service = new ExercicioApplicationService(_repository, _unitOfWork);
 
-
+            this._treinoController = new TreinoController();
         }
 
         [HttpPost]
@@ -35,14 +37,23 @@ namespace MEXA_SE.Api.Controllers
             var response = new HttpResponseMessage();
             try
             {
-                var command = new CreateExercicioCommand(
-                    dsExercicio: (string)body.exercicio,
-                    treinoId: (int)body.treinoid
-                );
+                //_treinoController.Post(body);
 
-                var exercicio = _service.Create(command);
+                var exercicios = _service.GetUsuario((string)body.email);
 
-                return CreateResponse(HttpStatusCode.Created, exercicio);
+                var exer = _service.GetOne((string)body.email);
+
+                if (!exer.DsExercicio.Equals((string)body.exercicio))
+                {
+                    var command = new CreateExercicioCommand(
+                        dsExercicio: (string)body.exercicio,
+                        treinoId: exercicios.TreinoId
+                    );
+
+                    var exercicio = _service.Create(command);
+                }
+
+                //return CreateResponse(HttpStatusCode.Created, exercicio);
             }
             catch
             {

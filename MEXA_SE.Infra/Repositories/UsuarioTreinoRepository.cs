@@ -5,6 +5,7 @@ using MEXA_SE.Infra.Presistence.DataContexts;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System;
 
 namespace MEXA_SE.Infra.Repositories
 {
@@ -29,7 +30,7 @@ namespace MEXA_SE.Infra.Repositories
 
         public UsuarioTreino GetOne(string email)
         {
-            return _context.UsuarioTreino.OrderByDescending(x => x.DtTreino).FirstOrDefault(UsuarioTreinoSpecs.GetAll(email));
+            return _context.UsuarioTreino.OrderByDescending(x => x.DtTreino).FirstOrDefault(UsuarioTreinoSpecs.GetByEmail(email));
         }
 
         public void Update(UsuarioTreino usuarioTreino)

@@ -45,6 +45,11 @@ namespace MEXA_SE.ApplicationService
             return _repository.GetOne(email);
         }
 
+        public Treino GetUsuario(string email)
+        {
+            return _repository.getUsuario(email);
+        }
+
         public Exercicio Update(UpdateExercicioCommand command)
         {
             var exercicio = _repository.GetId(command.ExercicioId);

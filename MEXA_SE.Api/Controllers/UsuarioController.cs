@@ -91,13 +91,11 @@ namespace MEXA_SE.Api.Controllers
         [Route("api/usuarios/getEmail/")]
         //[Authorize(Roles = "admin")]
         public Task<HttpResponseMessage> GetEmail([FromBody]dynamic body)
-        {
-            string email = (string)body.email;
-            
+        {            
             var response = new HttpResponseMessage();
             try
             {
-                var usuarios = _service.GetByEmail(email);
+                var usuarios = _service.GetByEmail((string)body.email);
                 response = Request.CreateResponse(HttpStatusCode.OK, usuarios);
             }
             catch

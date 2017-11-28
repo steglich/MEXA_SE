@@ -34,12 +34,17 @@ namespace MEXA_SE.Infra.Repositories
 
         public Treino GetOne(string email)
         {
-            return _context.Treino.OrderByDescending(x => x.UsuarioTreino.DtTreino).FirstOrDefault(TreinoSpecs.GetAll(email));
+            return _context.Treino.OrderByDescending(x => x.UsuarioTreino.DtTreino x.DsTreino).FirstOrDefault(TreinoSpecs.GetByEmail(email));
         }
 
         public Treino GetTreino(string treino)
         {
             return _context.Treino.Find(treino);
+        }
+
+        public UsuarioTreino GetUsuario(string email)
+        {
+            return _context.UsuarioTreino.OrderByDescending(x => x.DtTreino).FirstOrDefault(UsuarioTreinoSpecs.GetByEmail(email));
         }
 
         public void Update(Treino treino)

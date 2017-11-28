@@ -9,6 +9,7 @@ namespace MEXA_SE.Domain.Repositories
         Exercicio GetId(int exercicioId);
         Exercicio GetOne(string email);
         Exercicio GetExercicio(string exercicio);
+        Treino getUsuario(string email);
         void Create(Exercicio exercico);
         void Update(Exercicio exercico);
     }

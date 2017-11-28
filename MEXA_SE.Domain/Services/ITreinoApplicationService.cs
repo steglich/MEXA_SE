@@ -9,6 +9,7 @@ namespace MEXA_SE.Domain.Services
         List<Treino> GetAll();
         Treino GetOne(string email);
         Treino GetTreino(string treino);
+        UsuarioTreino GetUsuario(string email);
         Treino Create(CreateTreinoCommand command);
         Treino Update(UpdateTreinoCommand command);
     }

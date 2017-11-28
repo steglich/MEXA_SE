@@ -4,6 +4,7 @@ using MEXA_SE.Domain.Repositories;
 using MEXA_SE.Domain.Services;
 using MEXA_SE.Infra.Presistence;
 using System.Collections.Generic;
+using System;
 
 namespace MEXA_SE.ApplicationService
 {

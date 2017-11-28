@@ -37,12 +37,17 @@ namespace MEXA_SE.ApplicationService
 
         public Treino GetOne(string email)
         {
-            return _repository.GetOne(email); ;
+            return _repository.GetOne(email);
         }
 
         public Treino GetTreino(string treino)
         {
             return _repository.GetTreino(treino);
+        }
+
+        public UsuarioTreino GetUsuario(string email)
+        {
+            return _repository.GetUsuario(email);
         }
 
         public Treino Update(UpdateTreinoCommand command)

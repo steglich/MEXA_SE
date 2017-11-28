@@ -18,15 +18,15 @@ namespace MEXA_SE.Domain.Scopes
                 );
         }
 
-        public static bool UpdateEvolucaoTreinoScopIsValid(this EvolucaoTreino evolucaoTreino, int repeticao, int carga, DateTime aumentoTreino)
+        public static bool UpdateEvolucaoTreinoScopIsValid(this EvolucaoTreino evolucaoTreino, int repeticao, int carga)
         {
             return AssertionConcern.IsSatisfiedBy(
                 AssertionConcern.AssertNotEmpty(repeticao.ToString(), "O campo repetição é Obrigatório!"),
                 AssertionConcern.AssertIsGreaterThan(repeticao, 0, "O campo carga deve ser maior que 0!"),
                 AssertionConcern.AssertNotEmpty(carga.ToString(), "O campo carga é Obrigatório!"),
-                AssertionConcern.AssertIsGreaterThan(carga, 0, "O campo carga deve ser maior que 0!"),
-                AssertionConcern.AssertNotEmpty(aumentoTreino.ToString(), "O campo reavaliação é Obrigatório!"),
-                AssertionConcern.AssertLessThanDateEvolucao(aumentoTreino, "Data invalida!")
+                AssertionConcern.AssertIsGreaterThan(carga, 0, "O campo carga deve ser maior que 0!")
+                //AssertionConcern.AssertNotEmpty(aumentoTreino.ToString(), "O campo reavaliação é Obrigatório!"),
+                //AssertionConcern.AssertLessThanDateEvolucao(aumentoTreino, "Data invalida!")
                 );
         }
     }

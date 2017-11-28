@@ -18,7 +18,7 @@ namespace MEXA_SE.ApplicationService
 
         public EvolucaoTreino Create(CreateEvolucaoTreinoCommand command)
         {
-            var evolucaoTreino = new EvolucaoTreino(command.Repeticao, command.Carga, command.AumetoTreino, command.ExercicioId);
+            var evolucaoTreino = new EvolucaoTreino(command.Repeticao, command.Carga, command.ExercicioId);
             evolucaoTreino.CreateEvolucaoTreino();
             _repository.Create(evolucaoTreino);
 
@@ -40,10 +40,15 @@ namespace MEXA_SE.ApplicationService
             return _repository.GetOne(email);
         }
 
+        public Exercicio GetUsuario(string email)
+        {
+            return _repository.GetUsuario(email);
+        }
+
         public EvolucaoTreino Update(UpdateEvolucaoTreinoCommand command)
         {
             var evolucaoTreino = _repository.GetId(command.EvolucaoTreinoId);
-            evolucaoTreino.UpdateEvolucaoTreino(command.Repeticao, command.Carga, command.AumetoTreino);
+            evolucaoTreino.UpdateEvolucaoTreino(command.Repeticao, command.Carga);
             _repository.Update(evolucaoTreino);
 
             if (Commit())

@@ -13,6 +13,8 @@ namespace MEXA_SE.Api.Controllers
 {
     public class TreinoController : BaseController
     {
+        private UsuarioTreinoController _usuarioTreinocontroller;
+
         private ITreinoApplicationService _service;
         private TreinoRepository _repository;
         private UnitOfWork _unitOfWork;
@@ -26,6 +28,7 @@ namespace MEXA_SE.Api.Controllers
 
             this._service = new TreinoApplicationService(_repository, _unitOfWork);
 
+            this._usuarioTreinocontroller = new UsuarioTreinoController();
         }
 
         [HttpPost]
@@ -35,14 +38,24 @@ namespace MEXA_SE.Api.Controllers
             var response = new HttpResponseMessage();
             try
             {
-                var command = new CreateTreinoCommand(
-                    dsTreino: (string)body.treino,
-                    usuarioTreinoId: (int)body.usuariotreinoid
-                );
+                _usuarioTreinocontroller.Post(body);
 
-                var treino = _service.Create(command);
+                var treinos = _service.GetUsuario((string)body.email);
 
-                return CreateResponse(HttpStatusCode.Created, treino);
+                var trei = _service.GetOne((string)body.email);
+
+                if (!trei.DsTreino.Equals((string)body.treino))
+                {
+                    var command = new CreateTreinoCommand(
+                        dsTreino: (string)body.treino,
+                        usuarioTreinoId: treinos.UsuarioTreinoId
+                    );
+
+                    var treino = _service.Create(command);
+
+                    return CreateResponse(HttpStatusCode.Created, treino);
+                }
+                response = Request.CreateResponse(HttpStatusCode.Created, "ok");
             }
             catch
             {

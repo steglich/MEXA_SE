@@ -14,6 +14,8 @@ namespace MEXA_SE.Api.Controllers
 {
     public class EvolucaoTreinoController : BaseController
     {
+        private ExercicioController _exercicioController;
+
         private IEvolucaoTreinoApplicationService _service;
         private EvolucaoTreinoRepository _repository;
         private UnitOfWork _unitOfWork;
@@ -27,20 +29,26 @@ namespace MEXA_SE.Api.Controllers
 
             this._service = new EvolucaoTreinoApplicationService(_repository, _unitOfWork);
 
+            this._exercicioController = new ExercicioController();
+
         }
 
         [HttpPost]
-        [Route("api/evolucao/create/")]
+        [Route("api/evolucaoTreino/create/")]
         public Task<HttpResponseMessage> Post([FromBody]dynamic body)
         {
             var response = new HttpResponseMessage();
             try
             {
+                _exercicioController.Post(body);
+
+                var evolucaoTreinos = _service.GetUsuario((string)body.email);
+
                 var command = new CreateEvolucaoTreinoCommand(
                     repeticao: (int)body.repeticao,
                     carga: (int)body.carga,
-                    aumentoTreino: (DateTime)body.aumento,
-                    exercicioId: (int)body.exercicioid
+                    //aumentoTreino: (DateTime)body.aumento,
+                    exercicioId: evolucaoTreinos.ExercicioId
                 );
 
                 var evolucao = _service.Create(command);
@@ -88,8 +96,8 @@ namespace MEXA_SE.Api.Controllers
                 var command = new UpdateEvolucaoTreinoCommand(
                     evolucaoTreinoId: (int)body.id,
                     repeticao: (int)body.repeticao,
-                    carga: (int)body.carga,
-                    aumentoTreino: (DateTime)body.aumento
+                    carga: (int)body.carga
+                    //aumentoTreino: (DateTime)body.aumento
                 );
 
                 var evolucao = _service.Update(command);

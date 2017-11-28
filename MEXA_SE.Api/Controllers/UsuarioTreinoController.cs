@@ -4,6 +4,7 @@ using MEXA_SE.Domain.Services;
 using MEXA_SE.Infra.Presistence;
 using MEXA_SE.Infra.Presistence.DataContexts;
 using MEXA_SE.Infra.Repositories;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -13,6 +14,10 @@ namespace MEXA_SE.Api.Controllers
 {
     public class UsuarioTreinoController : BaseController
     {
+
+        private IUsuarioApplicationService _serviceUsuario;
+        private UsuarioRepository _repositoryUsuario;
+
         private IUsuarioTreinoApplicationService _service;
         private UsuarioTreinoRepository _repository;
         private UnitOfWork _unitOfWork;
@@ -22,9 +27,12 @@ namespace MEXA_SE.Api.Controllers
         {
             _dataContext = new DataContext();
             _repository = new UsuarioTreinoRepository(_dataContext);
+            _repositoryUsuario = new UsuarioRepository(_dataContext);
             _unitOfWork = new UnitOfWork(_dataContext);
 
             this._service = new UsuarioTreinoApplicationService(_repository, _unitOfWork);
+
+            this._serviceUsuario = new UsuarioApplicationService(_repositoryUsuario, _unitOfWork);
 
         }
 
@@ -35,13 +43,21 @@ namespace MEXA_SE.Api.Controllers
             var response = new HttpResponseMessage();
             try
             {
-                var command = new CreateUsuarioTreinoCommand(
-                    usuarioId: (int)body.id
-                );
+                DateTime dataTeste = DateTime.Now.Date;
+                var data = _service.GetOne((string)body.email);
 
-                var usuarioTreino = _service.Create(command);
+                if (data.DtTreino != dataTeste)
+                {
+                    var usuario = _serviceUsuario.GetByEmail((string)body.email);
 
-                return CreateResponse(HttpStatusCode.Created, usuarioTreino);
+                    var command = new CreateUsuarioTreinoCommand(
+                        usuarioId: usuario.UsuarioId
+                    );
+
+                    var usuarioTreino = _service.Create(command);
+                }
+
+                //return CreateResponse(HttpStatusCode.Created, usuarioTreino);
             }
             catch
             {

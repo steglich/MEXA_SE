@@ -9,6 +9,7 @@ namespace MEXA_SE.Domain.Repositories
         Treino GetId(int treinoId);
         Treino GetOne(string email);
         Treino GetTreino(string treino);
+        UsuarioTreino GetUsuario(string email);
         void Create(Treino treino);
         void Update(Treino treino);
     }

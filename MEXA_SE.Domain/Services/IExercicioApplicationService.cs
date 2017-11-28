@@ -9,6 +9,7 @@ namespace MEXA_SE.Domain.Services
         List<Exercicio> GetAll();
         Exercicio GetOne(string email);
         Exercicio GetExercicio(string exercicio);
+        Treino GetUsuario(string email);
         Exercicio Create(CreateExercicioCommand command);
         Exercicio Update(UpdateExercicioCommand command);
     }

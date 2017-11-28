@@ -9,11 +9,11 @@ namespace MEXA_SE.Domain.Entities
         {
 
         }
-        public EvolucaoTreino(int repeticao, int carga, DateTime aumentoTreino, int exercicioId)
+        public EvolucaoTreino(int repeticao, int carga, int exercicioId)
         {
             this.Repeticao = repeticao;
             this.Carga = carga;
-            this.AumetoTreino = aumentoTreino;
+            this.AumetoTreino = DateTime.Now.Date;
             this.ExercicioId = exercicioId;
         }
 
@@ -30,14 +30,14 @@ namespace MEXA_SE.Domain.Entities
         {
             this.CreateEvolucaoTreinoScopIsValid();
         }
-        public void UpdateEvolucaoTreino(int repeticao, int carga, DateTime aumentoTreino)
+        public void UpdateEvolucaoTreino(int repeticao, int carga)
         {
-            if (!this.UpdateEvolucaoTreinoScopIsValid(repeticao, carga, aumentoTreino))
+            if (!this.UpdateEvolucaoTreinoScopIsValid(repeticao, carga))
                 return;
 
             this.Repeticao = repeticao;
             this.Carga = carga;
-            this.AumetoTreino = aumentoTreino;
+            //this.AumetoTreino = aumentoTreino;
         }
     }
 }
