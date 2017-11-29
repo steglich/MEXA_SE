@@ -43,10 +43,25 @@ namespace MEXA_SE.Api.Controllers
             var response = new HttpResponseMessage();
             try
             {
-                DateTime dataTeste = DateTime.Now.Date;
-                var data = _service.GetOne((string)body.email);
 
-                if (data.DtTreino != dataTeste)
+                try
+                {
+                    DateTime dataTeste = DateTime.Now.Date;
+                    var data = _service.GetOne((string)body.email);
+
+                    if (data.DtTreino != dataTeste)
+                    {
+                        var usuario = _serviceUsuario.GetByEmail((string)body.email);
+
+                        var command = new CreateUsuarioTreinoCommand(
+                            usuarioId: usuario.UsuarioId
+                        );
+
+                        var usuarioTreino = _service.Create(command);
+                    }
+
+                }
+                catch
                 {
                     var usuario = _serviceUsuario.GetByEmail((string)body.email);
 
@@ -55,7 +70,9 @@ namespace MEXA_SE.Api.Controllers
                     );
 
                     var usuarioTreino = _service.Create(command);
+
                 }
+                //}
 
                 //return CreateResponse(HttpStatusCode.Created, usuarioTreino);
             }

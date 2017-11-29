@@ -42,9 +42,28 @@ namespace MEXA_SE.Api.Controllers
 
                 var treinos = _service.GetUsuario((string)body.email);
 
-                var trei = _service.GetOne((string)body.email);
 
-                if (!trei.DsTreino.Equals((string)body.treino))
+                try
+                {
+                    var trei = _service.GetByTreino((string)body.email, (string)body.treino);
+
+                    if (trei.DsTreino.Equals((string)body.treino))
+                    {
+                        return CreateResponse(HttpStatusCode.Created, treinos);
+                    }
+                    else
+                    {
+                        var command = new CreateTreinoCommand(
+                            dsTreino: (string)body.treino,
+                            usuarioTreinoId: treinos.UsuarioTreinoId
+                        );
+
+                        var treino = _service.Create(command);
+
+                        return CreateResponse(HttpStatusCode.Created, treino);
+                    }
+                }
+                catch
                 {
                     var command = new CreateTreinoCommand(
                         dsTreino: (string)body.treino,
@@ -55,7 +74,6 @@ namespace MEXA_SE.Api.Controllers
 
                     return CreateResponse(HttpStatusCode.Created, treino);
                 }
-                response = Request.CreateResponse(HttpStatusCode.Created, "ok");
             }
             catch
             {
@@ -75,8 +93,8 @@ namespace MEXA_SE.Api.Controllers
             var response = new HttpResponseMessage();
             try
             {
-                var treino = _service.GetOne(teste);
-                response = Request.CreateResponse(HttpStatusCode.OK, treino);
+                //var treino = _service.GetOne(teste, email);
+                //response = Request.CreateResponse(HttpStatusCode.OK, treino);
             }
             catch
             {

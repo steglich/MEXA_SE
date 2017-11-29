@@ -32,9 +32,15 @@ namespace MEXA_SE.Infra.Repositories
             return _context.Treino.Find(treinoId);
         }
 
-        public Treino GetOne(string email)
+        public Treino GetByEmail(string email)
         {
-            return _context.Treino.OrderByDescending(x => x.UsuarioTreino.DtTreino x.DsTreino).FirstOrDefault(TreinoSpecs.GetByEmail(email));
+            return _context.Treino.OrderByDescending(x => x.UsuarioTreino.DtTreino).FirstOrDefault(TreinoSpecs.GetByEmail(email));
+        }
+
+        public Treino GetByTreino(string email, string dsTreino)
+        {
+            return _context.Treino.OrderByDescending(x => x.UsuarioTreino.DtTreino).FirstOrDefault(TreinoSpecs.GetByTreino(email, dsTreino));
+            //return _context.Treino.OrderByDescending(x => x.UsuarioTreino.DtTreino).FirstOrDefault(TreinoSpecs.GetByEmail(email));
         }
 
         public Treino GetTreino(string treino)

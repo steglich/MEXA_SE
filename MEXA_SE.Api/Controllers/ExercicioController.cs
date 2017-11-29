@@ -39,11 +39,26 @@ namespace MEXA_SE.Api.Controllers
             {
                 //_treinoController.Post(body);
 
-                var exercicios = _service.GetUsuario((string)body.email);
+                var exercicios = _service.GetUsuario((string)body.email, (string)body.treino);
+                try
+                {
+                    var exer = _service.GetByExercicio((string)body.email, (string)body.exercicio);
 
-                var exer = _service.GetOne((string)body.email);
+                    if (exer.DsExercicio.Equals((string)body.exercicio))
+                    {
+                    }
+                    else
+                    {
+                        var command = new CreateExercicioCommand(
+                            dsExercicio: (string)body.exercicio,
+                            treinoId: exer.TreinoId
+                        );
 
-                if (!exer.DsExercicio.Equals((string)body.exercicio))
+                        var exercicio = _service.Create(command);
+
+                    }
+                }
+                catch
                 {
                     var command = new CreateExercicioCommand(
                         dsExercicio: (string)body.exercicio,
@@ -51,6 +66,7 @@ namespace MEXA_SE.Api.Controllers
                     );
 
                     var exercicio = _service.Create(command);
+
                 }
 
                 //return CreateResponse(HttpStatusCode.Created, exercicio);
@@ -73,7 +89,7 @@ namespace MEXA_SE.Api.Controllers
             var response = new HttpResponseMessage();
             try
             {
-                var exercicio = _service.GetOne(teste);
+                var exercicio = _service.GetByEmail(teste);
                 response = Request.CreateResponse(HttpStatusCode.OK, exercicio);
             }
             catch

@@ -16,6 +16,9 @@ namespace MEXA_SE.Api.Controllers
     {
         private ExercicioController _exercicioController;
 
+        private IExercicioApplicationService _serviceExercicio;
+        private ExercicioRepository _repositoryExercicio;
+
         private IEvolucaoTreinoApplicationService _service;
         private EvolucaoTreinoRepository _repository;
         private UnitOfWork _unitOfWork;
@@ -25,9 +28,11 @@ namespace MEXA_SE.Api.Controllers
         {
             _dataContext = new DataContext();
             _repository = new EvolucaoTreinoRepository(_dataContext);
+            _repositoryExercicio = new ExercicioRepository(_dataContext);
             _unitOfWork = new UnitOfWork(_dataContext);
 
             this._service = new EvolucaoTreinoApplicationService(_repository, _unitOfWork);
+            this._serviceExercicio = new ExercicioApplicationService(_repositoryExercicio, _unitOfWork);
 
             this._exercicioController = new ExercicioController();
 
@@ -42,7 +47,8 @@ namespace MEXA_SE.Api.Controllers
             {
                 _exercicioController.Post(body);
 
-                var evolucaoTreinos = _service.GetUsuario((string)body.email);
+                //var evolucaoTreinos = _service.GetUsuario((string)body.email);
+                var evolucaoTreinos = _serviceExercicio.GetByExercicio((string)body.email, (string)body.exercicio);
 
                 var command = new CreateEvolucaoTreinoCommand(
                     repeticao: (int)body.repeticao,

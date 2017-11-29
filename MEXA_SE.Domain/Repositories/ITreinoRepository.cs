@@ -7,7 +7,8 @@ namespace MEXA_SE.Domain.Repositories
     {
         List<Treino> GetAll();
         Treino GetId(int treinoId);
-        Treino GetOne(string email);
+        Treino GetByEmail(string email);
+        Treino GetByTreino(string email, string dsTreino);
         Treino GetTreino(string treino);
         UsuarioTreino GetUsuario(string email);
         void Create(Treino treino);

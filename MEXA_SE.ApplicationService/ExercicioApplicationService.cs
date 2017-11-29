@@ -40,14 +40,19 @@ namespace MEXA_SE.ApplicationService
             return _repository.GetExercicio(exercicio);
         }
 
-        public Exercicio GetOne(string email)
+        public Exercicio GetByEmail(string email)
         {
-            return _repository.GetOne(email);
+            return _repository.GetByEmail(email);
         }
 
-        public Treino GetUsuario(string email)
+        public Exercicio GetByExercicio(string email, string exercicio)
         {
-            return _repository.getUsuario(email);
+            return _repository.GetByExercicio(email, exercicio);
+        }
+
+        public Treino GetUsuario(string email, string treino)
+        {
+            return _repository.getUsuario(email, treino);
         }
 
         public Exercicio Update(UpdateExercicioCommand command)

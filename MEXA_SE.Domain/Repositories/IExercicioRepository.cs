@@ -7,9 +7,10 @@ namespace MEXA_SE.Domain.Repositories
     {
         List<Exercicio> GetAll();
         Exercicio GetId(int exercicioId);
-        Exercicio GetOne(string email);
+        Exercicio GetByEmail(string email);
+        Exercicio GetByExercicio(string email, string exercicio);
         Exercicio GetExercicio(string exercicio);
-        Treino getUsuario(string email);
+        Treino getUsuario(string email, string treino);
         void Create(Exercicio exercico);
         void Update(Exercicio exercico);
     }
