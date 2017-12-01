@@ -6,7 +6,7 @@ namespace MEXA_SE.Domain.Services
 {
     public interface ITreinoApplicationService
     {
-        List<Treino> GetAll();
+        List<Treino> GetAll(string email);
         Treino GetByEmail(string email);
         Treino GetByTreino(string email, string dsTreino);
         Treino GetTreino(string treino);

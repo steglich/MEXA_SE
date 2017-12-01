@@ -30,9 +30,9 @@ namespace MEXA_SE.ApplicationService
             return null;
         }
 
-        public List<Treino> GetAll()
+        public List<Treino> GetAll(string email)
         {
-            return _repository.GetAll();
+            return _repository.GetAll(email);
         }
 
         public Treino GetByEmail(string email)

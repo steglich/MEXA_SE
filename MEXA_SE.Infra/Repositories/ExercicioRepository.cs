@@ -22,9 +22,9 @@ namespace MEXA_SE.Infra.Repositories
             _context.Exercicio.Add(exercico);
         }
 
-        public List<Exercicio> GetAll()
+        public List<Exercicio> GetAll(string email, string treino)
         {
-            return _context.Exercicio.ToList();
+            return _context.Exercicio.Where(ExercicioSpecs.GetAll(email, treino)).ToList();
         }
 
         public Exercicio GetExercicio(string exercicio)

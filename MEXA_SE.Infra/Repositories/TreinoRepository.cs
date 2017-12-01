@@ -22,9 +22,9 @@ namespace MEXA_SE.Infra.Repositories
             _context.Treino.Add(treino);
         }
 
-        public List<Treino> GetAll()
+        public List<Treino> GetAll(string email)
         {
-            return _context.Treino.ToList();
+            return _context.Treino.Where(TreinoSpecs.GetByEmail(email)).ToList();
         }
 
         public Treino GetId(int treinoId)

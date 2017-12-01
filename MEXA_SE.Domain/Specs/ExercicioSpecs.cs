@@ -14,5 +14,9 @@ namespace MEXA_SE.Domain.Specs
         {
             return x => x.Treino.UsuarioTreino.Usuario.Email == email && x.DsExercicio.Equals(exercicio);
         }
+        public static Expression<Func<Exercicio, bool>> GetAll(string email, string treino)
+        {
+            return x => x.Treino.UsuarioTreino.Usuario.Email == email && x.Treino.DsTreino.Equals(treino);
+        }
     }
 }

@@ -22,9 +22,9 @@ namespace MEXA_SE.Infra.Repositories
             _context.EvolucaoTreino.Add(quantidade);
         }
 
-        public List<EvolucaoTreino> GetAll()
+        public List<EvolucaoTreino> GetAll(string email, string exercicio)
         {
-            return _context.EvolucaoTreino.ToList();
+            return _context.EvolucaoTreino.Where(EvolucaoTreinoSpecs.GetAll(email, exercicio)).ToList();
         }
 
         public EvolucaoTreino GetId(int evolucaoTreinoId)
@@ -32,9 +32,9 @@ namespace MEXA_SE.Infra.Repositories
             return _context.EvolucaoTreino.Find(evolucaoTreinoId);
         }
 
-        public EvolucaoTreino GetOne(string email)
+        public EvolucaoTreino GetOne(string email, string exercicio)
         {
-            return _context.EvolucaoTreino.OrderByDescending(x => x.AumetoTreino).FirstOrDefault(EvolucaoTreinoSpecs.GetByEmail(email));
+            return _context.EvolucaoTreino.OrderByDescending(x => x.AumetoTreino).FirstOrDefault(EvolucaoTreinoSpecs.GetAll(email, exercicio));
         }
 
         public Exercicio GetUsuario(string email)

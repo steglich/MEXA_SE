@@ -30,9 +30,9 @@ namespace MEXA_SE.ApplicationService
             return null;
         }
 
-        public List<Exercicio> GetAll()
+        public List<Exercicio> GetAll(string email, string treino)
         {
-            return _repository.GetAll();
+            return _repository.GetAll(email, treino);
         }
 
         public Exercicio GetExercicio(string exercicio)
